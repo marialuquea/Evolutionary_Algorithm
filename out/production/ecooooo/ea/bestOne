@@ -18,4 +18,6 @@ public class Parameters
 }
 
 crossover: uniform
-mutitation: change a random no true->false and viceversa
+mutation: change a random no true->false and viceversa
+selection: roullette
+
