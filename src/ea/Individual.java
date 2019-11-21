@@ -17,16 +17,17 @@ public class Individual {
 	// this code just evolves the transition strategy
 	// an individual is initialised with a random strategy that will evolve
 	// the pacing strategy is initialised to the default strategy and remains fixed
-	
-	public void initialise(){
-		for(int i = 0; i < transitionStrategy.length; i++){
+
+	public void initialise()
+	{
+		for(int i = 0; i < transitionStrategy.length; i++)
 			transitionStrategy[i] = Parameters.rnd.nextBoolean();
-		}
-		
-		for(int i = 0; i < pacingStrategy.length; i++){
+
+		for(int i = 0; i < pacingStrategy.length; i++)
 			pacingStrategy[i] = Parameters.DEFAULT_WOMENS_PACING_STRATEGY[i];
-		}
-		
+
+		for(int i = 0; i < pacingStrategy.length; i++)
+			pacingStrategy[i] = 500 - Parameters.rnd.nextInt(200);
 	}
 	
 	// this is just there in case you want to check the default strategies

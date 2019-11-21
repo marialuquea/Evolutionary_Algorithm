@@ -17,6 +17,8 @@ package ea;
 
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+
 import teamPursuit.TeamPursuit;
 import teamPursuit.WomensTeamPursuit;
 
@@ -40,14 +42,14 @@ public class EA implements Runnable{
 
 	public void run() {
 		initialisePopulation();	
-		System.out.println("finished init pop");
+		System.out.println("finished init pop: "+ population.size());
 		iteration = 0;
 		while(iteration < Parameters.maxIterations){
 			iteration++;
-			Individual parent1 = tournamentSelection();
-			Individual parent2 = tournamentSelection();
-			Individual child = crossover(parent1, parent2);
-			child = mutate(child);
+			Individual parent1 = RoulletteSelection();
+			Individual parent2 = RoulletteSelection();
+			Individual child = UniformCrossover(parent1, parent2);
+			child = mutate2(child);
 			child.evaluate(teamPursuit);
 			replace(child);
 			printStats();
@@ -69,16 +71,34 @@ public class EA implements Runnable{
 		}
 	}
 
+	private Individual mutate2(Individual child) {
+		if(Parameters.rnd.nextDouble() > Parameters.mutationProbability)
+			return child;
+
+		int mutationRate = 1 + Parameters.rnd.nextInt(Parameters.mutationRateMax);
+
+		for(int i = 0; i < mutationRate; i++)
+		{
+				int tIndex = Parameters.rnd.nextInt(child.transitionStrategy.length);
+				child.transitionStrategy[tIndex] = !child.transitionStrategy[tIndex];
+
+				int mutationChange = 10 - Parameters.rnd.nextInt(20);
+				int pIndex = Parameters.rnd.nextInt(child.pacingStrategy.length);
+
+				if (child.pacingStrategy[pIndex] + mutationChange >= 200 && child.pacingStrategy[pIndex] + mutationChange <= 1200)
+					child.pacingStrategy[pIndex] = child.pacingStrategy[pIndex] + mutationChange;
+		}
+		return child;
+	}
+
 	private Individual mutate(Individual child) {
 		if(Parameters.rnd.nextDouble() > Parameters.mutationProbability){
 			return child;
 		}
-		
 		// choose how many elements to alter
 		int mutationRate = 1 + Parameters.rnd.nextInt(Parameters.mutationRateMax);
 		
 		// mutate the transition strategy
-
 			//mutate the transition strategy by flipping boolean value
 			for(int i = 0; i < mutationRate; i++){
 				int index = Parameters.rnd.nextInt(child.transitionStrategy.length);
@@ -90,8 +110,62 @@ public class EA implements Runnable{
 		return child;
 	}
 
-	private Individual crossover(Individual parent1, Individual parent2)
-	{
+	private Individual RoulletteSelection() {
+		Individual returnIndividual = new Individual();
+
+		double totalFitness = 0.0;
+		ArrayList<Double> fitness = new ArrayList<>();
+
+		for(Individual individual : population)
+			totalFitness += individual.getFitness();
+
+		for(Individual individual : population)
+			fitness.add(((1 / individual.getFitness()) / totalFitness) * 100);
+
+		double random = ThreadLocalRandom.current().nextDouble(0, 100);
+
+		for(Individual individual : population)
+		{
+			random -= individual.getFitness();
+
+			if(random <= 0)
+			{
+				returnIndividual = individual;
+				break;
+			}
+		}
+
+		return returnIndividual;
+	}
+
+	private Individual UniformCrossover(Individual parent1, Individual parent2) {
+		if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
+			return parent1;
+
+		Individual child1 = new Individual();
+
+		for(int i = 0; i < parent1.pacingStrategy.length; i++)
+		{
+			if(Parameters.rnd.nextInt(2) == 0)
+				child1.pacingStrategy[i] = parent1.pacingStrategy[i];
+
+			else
+				child1.pacingStrategy[i] = parent2.pacingStrategy[i];
+		}
+
+		for(int i = 0; i < parent1.transitionStrategy.length; i++)
+		{
+			if(Parameters.rnd.nextInt(2) == 0)
+				child1.transitionStrategy[i] = parent1.transitionStrategy[i];
+
+			else
+				child1.transitionStrategy[i] = parent2.transitionStrategy[i];
+		}
+
+		return child1;
+	}
+
+	private Individual crossover(Individual parent1, Individual parent2) {
 		// probability of crossover happening
 		//if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
 		//	return parent1;

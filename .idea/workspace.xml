@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="912e48d8-837d-4f1d-91c0-cc6faaebd4ca" name="Default Changelist" comment="">
+    <list default="true" id="38e805e0-80cb-43ed-8de2-cf1a387bad82" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ea/bestOne" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/EA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/EA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/Cyclist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/Cyclist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/MensTeamPursuit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/MensTeamPursuit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/SimulationResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/SimulationResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/TeamPursuit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/TeamPursuit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/WomensTeamPursuit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/WomensTeamPursuit.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ea/EA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/EA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ea/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Individual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ea/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Parameters.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +26,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1TvLdS73nSWt2TeZ7Cov5d9YGSS" />
+  <component name="ProjectId" id="1TvYAWMEeP4hH4C5g5baKRhOuWq" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/4th year/MAS" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -56,11 +67,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="912e48d8-837d-4f1d-91c0-cc6faaebd4ca" name="Default Changelist" comment="" />
-      <created>1574335710153</created>
+      <changelist id="38e805e0-80cb-43ed-8de2-cf1a387bad82" name="Default Changelist" comment="" />
+      <created>1574341893069</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574335710153</updated>
+      <updated>1574341893069</updated>
     </task>
     <servers />
   </component>
