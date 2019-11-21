@@ -1,4 +1,27 @@
 
+10000	 best:214.99600000001288	 	 worst:216.17800000001753
+490,458,325,321,373,418,441,498,393,344,391,422,440,376,332,477,429,433,469,422,451,370,453,
+false,true,false,true,true,true,true,false,true,false,true,false,false,false,true,true,false,false,true,true,false,false,
+214.99600000001288
+
+public class Parameters
+{
+	public static Random rnd = new Random(System.currentTimeMillis());
+	static final boolean [] DEFAULT_WOMENS_TRANSITION_STRATEGY = {true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true};
+	public static final int [] DEFAULT_WOMENS_PACING_STRATEGY = {300, 300, 300, 300, 300, 300, 300, 350, 350, 300, 300, 350, 350, 350, 350, 300, 300, 350, 350, 350, 350, 300, 300};
+	public static int popSize = 100; // population size - initially 20 - 70
+	public static int tournamentSize = 10; // selection process - initially 2
+	public static int mutationRateMax = 6; // out of len - initially 6, can be up to 23
+	public static double mutationProbability = 0.5; // initially 0.5
+	public static double crossoverProbability = 1.0; //initially 1.0
+	public static int maxIterations = 10000; // initially 1000
+}
+
+crossover: uniform
+mutation: change a random no true->false and viceversa
+selection: roullette
+
+-----------------------------------------------------
 
 424,393,442,542,459,326,354,373,476,475,319,302,440,453,466,390,398,392,373,495,487,424,286,
 true,false,true,false,false,true,false,true,false,true,true,false,true,true,false,true,true,true,true,true,true,false,
@@ -20,4 +43,5 @@ public class Parameters
 crossover: uniform
 mutation: change a random no true->false and viceversa
 selection: roullette
+
 

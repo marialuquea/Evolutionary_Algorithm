@@ -7,8 +7,9 @@
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/bestOne" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/bestOne" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ea/EA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/EA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ea/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Individual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ea/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Parameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ea/bestOne" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/bestOne" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

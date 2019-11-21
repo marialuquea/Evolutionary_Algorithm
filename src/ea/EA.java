@@ -104,9 +104,6 @@ public class EA implements Runnable{
 				int index = Parameters.rnd.nextInt(child.transitionStrategy.length);
 				child.transitionStrategy[index] = !child.transitionStrategy[index];
 			}
-			
-		
-		
 		return child;
 	}
 
