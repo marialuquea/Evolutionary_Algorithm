@@ -58,9 +58,8 @@ public class EA implements Runnable{
 	}
 
 	private void printStats() {		
-		System.out.println("" + iteration + "\t" + getBest(population) + "\t" + getWorst(population));		
+		System.out.println("" + iteration + "\t best:" + getBest(population) + "\t \t worst:" + getWorst(population));
 	}
-
 
 	private void replace(Individual child) {
 		Individual worst = getWorst(population);
@@ -69,7 +68,6 @@ public class EA implements Runnable{
 			population.set(idx, child);
 		}
 	}
-
 
 	private Individual mutate(Individual child) {
 		if(Parameters.rnd.nextDouble() > Parameters.mutationProbability){
@@ -92,30 +90,48 @@ public class EA implements Runnable{
 		return child;
 	}
 
+	private Individual crossover(Individual parent1, Individual parent2)
+	{
+		// probability of crossover happening
+		//if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
+		//	return parent1;
 
-	private Individual crossover(Individual parent1, Individual parent2) {
-		if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability){
-			return parent1;
-		}
+		// create empty child individual
 		Individual child = new Individual();
-		
-		int crossoverPoint = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
-		
+
+		// pick cut point - random cut-point along chromosome length
+		int crossoverPoint1 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
+		int crossoverPoint2 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
+
+		// point 1 should be smaller than point 2
+		if (crossoverPoint1 > crossoverPoint1)
+		{
+			int save = crossoverPoint1;
+			crossoverPoint1 = crossoverPoint2;
+			crossoverPoint2 = save;
+		}
+
 		// just copy the pacing strategy from p1 - not evolving in this version
 		for(int i = 0; i < parent1.pacingStrategy.length; i++){			
 			child.pacingStrategy[i] = parent1.pacingStrategy[i];
 		}
 		
-		
-		for(int i = 0; i < crossoverPoint; i++){
+		// genes from parent 1
+		for(int i = 0; i < crossoverPoint1; i++){
 			child.transitionStrategy[i] = parent1.transitionStrategy[i];
 		}
-		for(int i = crossoverPoint; i < parent2.transitionStrategy.length; i++){
+
+		// genes from parent 2
+		for(int i = crossoverPoint1; i < crossoverPoint2; i++){
+			child.transitionStrategy[i] = parent2.transitionStrategy[i];
+		}
+
+		// genes from parent 1
+		for(int i = crossoverPoint2; i < parent2.transitionStrategy.length; i++){
 			child.transitionStrategy[i] = parent2.transitionStrategy[i];
 		}
 		return child;
 	}
-
 
 	/**
 	 * Returns a COPY of the individual selected using tournament selection
@@ -128,7 +144,6 @@ public class EA implements Runnable{
 		}
 		return getBest(candidates).copy();
 	}
-
 
 	private Individual getBest(ArrayList<Individual> aPopulation) {
 		double bestFitness = Double.MAX_VALUE;

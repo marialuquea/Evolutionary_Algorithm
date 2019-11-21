@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81746e1c-44de-48e9-b49c-ff8743f78cb1" name="Default Changelist" comment="" />
+    <list default="true" id="912e48d8-837d-4f1d-91c0-cc6faaebd4ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ea/EA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/EA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ea/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Parameters.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectId" id="1SeO6hpy9uGR6qs9HQPgbrS8vKh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1TvLdS73nSWt2TeZ7Cov5d9YGSS" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -28,7 +34,7 @@
   <component name="RunManager">
     <configuration name="EA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ea.EA" />
-      <module name="teamPursuitCoursework" />
+      <module name="ecooooo" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ea.*" />
@@ -50,23 +56,23 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="81746e1c-44de-48e9-b49c-ff8743f78cb1" name="Default Changelist" comment="" />
-      <created>1571920420993</created>
+      <changelist id="912e48d8-837d-4f1d-91c0-cc6faaebd4ca" name="Default Changelist" comment="" />
+      <created>1574335710153</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571920420993</updated>
+      <updated>1574335710153</updated>
     </task>
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ea/Individual.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

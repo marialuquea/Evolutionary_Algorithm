@@ -14,17 +14,17 @@ public class Parameters {
 	public static final int [] DEFAULT_WOMENS_PACING_STRATEGY = {300, 300, 300, 300, 300, 300, 300, 350, 350, 300, 300, 350, 350, 350, 350, 300, 300, 350, 350, 350, 350, 300, 300};
 	
 	
-	public static int popSize = 20; // population size
-	public static int tournamentSize = 2; // selection process
+	public static int popSize = 100; // population size - initially 20
+	public static int tournamentSize = 10; // selection process - initially 2
 	/**
 	 * big tournament high: reduces the chance of picking low fitness individuals
 	* */
 	
-	public static int mutationRateMax = 6; // out of len
-	public static double mutationProbability = 0.5;
-	public static double crossoverProbability = 1.0;
+	public static int mutationRateMax = 6; // out of len - initially 6
+	public static double mutationProbability = 0.5; // initially 0.5
+	public static double crossoverProbability = 1.0; //initially 1.0
 	
-	public static int maxIterations = 1000;
+	public static int maxIterations = 1000; // initially 1000
 	
 	
 }
