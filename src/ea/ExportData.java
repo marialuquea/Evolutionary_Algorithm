@@ -1,9 +1,38 @@
 package ea;
 
-public class ExportData
-{
-    EA ea = new EA();
+import java.util.ArrayList;
 
-    //TODO: run ea and export parameters and results to a document
-    ea.run();
+public class ExportData implements Runnable
+{
+    public ExportData() {  }
+
+    public static void main(String[] args) {
+        ExportData ed = new ExportData();
+        ed.run();
+    }
+
+    public void run()
+    {
+        ArrayList<String> results = new ArrayList<>();
+
+        for (int i = 0; i <= 10; i++)
+        {
+            EA ea = new EA();
+            Individual individual = new Individual();
+
+            System.out.println("");
+            ea.runAlgorithm();
+            individual = ea.bestI();
+            String result = individual.getResult();
+            results.add(result);
+        }
+
+        System.out.println("------RESULTS-------");
+        for (String r : results)
+        {
+            System.out.println(results);
+        }
+
+
+    }
 }

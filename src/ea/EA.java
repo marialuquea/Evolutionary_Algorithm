@@ -15,18 +15,16 @@ package ea;
  * The idea is to minimise the fitness value
  */
 
-
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
-
 import teamPursuit.TeamPursuit;
 import teamPursuit.WomensTeamPursuit;
 
-public class EA implements Runnable{
-	
+public class EA
+{
 	// create a new team with the default settings
-	public static TeamPursuit teamPursuit = new WomensTeamPursuit(); 
-	
+	public static TeamPursuit teamPursuit = new WomensTeamPursuit();
+	public String bestTime = "";
 	private ArrayList<Individual> population = new ArrayList<Individual>();
 	private int iteration = 0;
 	
@@ -34,13 +32,18 @@ public class EA implements Runnable{
 		
 	}
 
+
+	public Individual bestI(){
+		Individual best = getBest(population);
+		return best;
+	}
 	
 	public static void main(String[] args) {
 		EA ea = new EA();
-		ea.run();
+		// ea.run();
 	}
 
-	public void run() {
+	public void runAlgorithm() {
 		initialisePopulation();	
 		System.out.println("finished init pop: "+ population.size());
 		iteration = 0;
@@ -49,6 +52,7 @@ public class EA implements Runnable{
 			Individual parent1 = RoulletteSelection();
 			Individual parent2 = RoulletteSelection();
 			Individual child = UniformCrossover(parent1, parent2);
+			child = mutate(child);
 			child = mutate2(child);
 			child.evaluate(teamPursuit);
 			replace(child);
@@ -56,7 +60,7 @@ public class EA implements Runnable{
 		}						
 		Individual best = getBest(population);
 		best.print();
-		
+
 	}
 
 	private void printStats() {		
@@ -79,10 +83,12 @@ public class EA implements Runnable{
 
 		for(int i = 0; i < mutationRate; i++)
 		{
+				//inverts a random tranition
 				int tIndex = Parameters.rnd.nextInt(child.transitionStrategy.length);
 				child.transitionStrategy[tIndex] = !child.transitionStrategy[tIndex];
 
-				int mutationChange = 10 - Parameters.rnd.nextInt(20);
+				//
+				int mutationChange = ThreadLocalRandom.current().nextInt(-50,50);
 				int pIndex = Parameters.rnd.nextInt(child.pacingStrategy.length);
 
 				if (child.pacingStrategy[pIndex] + mutationChange >= 200 && child.pacingStrategy[pIndex] + mutationChange <= 1200)
@@ -247,6 +253,7 @@ public class EA implements Runnable{
 	}
 
 	private void initialisePopulation() {
+		population.clear();
 		while(population.size() < Parameters.popSize){
 			Individual individual = new Individual();
 			individual.initialise();			

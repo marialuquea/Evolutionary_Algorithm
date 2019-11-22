@@ -1,17 +1,24 @@
 package ea;
 
 import teamPursuit.*;
+import java.util.ArrayList;
 
 public class Individual {
 
+	public String results = "";
 	
 	boolean[] transitionStrategy = new boolean[22];
 	int[] pacingStrategy = new int[23];
 	
-	SimulationResult result = null;	
+	SimulationResult result = null;
 	
 	public Individual() {		
 		
+	}
+
+	public String getResult(){
+		System.out.println("-----sending results: "+results);
+		return results;
 	}
 
 	// this code just evolves the transition strategy
@@ -91,17 +98,34 @@ public class Individual {
 	}
 
 	public void print() {
+		String best = "";
+		String parameters = "";
+		parameters = parameters
+				+ Parameters.popSize + ","
+				+ Parameters.tournamentSize + ","
+				+ Parameters.mutationRateMax + ","
+				+ Parameters.mutationProbability + ","
+				+ Parameters.crossoverProbability + ","
+				+ Parameters.maxIterations + ",";
+
 		for(int i : pacingStrategy){
-			System.out.print(i + ",");			
+			System.out.print(i + ",");
+			best += (i + ",");
 		}
 		System.out.println();
 		for(boolean b : transitionStrategy){
 			if(b){
 				System.out.print("true,");
+				best += "true,";
 			}else{
 				System.out.print("false,");
+				best += "false,";
 			}
 		}
 		System.out.println("\r\n" + this);
+		best += this + "," + parameters;
+		System.out.println("best: "+best);
+		results += best;
+		System.out.println("-r: "+results);
 	}
 }
