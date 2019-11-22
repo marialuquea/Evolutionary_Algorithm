@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38e805e0-80cb-43ed-8de2-cf1a387bad82" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ea/ExportData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/EA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/EA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/bestOne" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/bestOne" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ea/EA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/EA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ea/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Individual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ea/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Parameters.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,10 +13,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1TvYAWMEeP4hH4C5g5baKRhOuWq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/4th year/MAS" />
   </component>
@@ -74,7 +80,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
