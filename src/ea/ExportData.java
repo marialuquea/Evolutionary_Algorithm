@@ -38,7 +38,7 @@ public class ExportData implements Runnable
         */
 
         // run EA 10 times
-        for (int i = 0; i <= 10; i++)
+        for (int i = 0; i <= 0; i++)
         {
             EA ea = new EA();
             Individual individual = new Individual();

@@ -47,24 +47,48 @@ public class EA
 		initialisePopulation();	
 		System.out.println("finished init pop: "+ population.size());
 		iteration = 0;
+
 		while(iteration < Parameters.maxIterations){
 			iteration++;
+
+			if(iteration % Parameters.reducePopSizeRate == 0)
+			{
+				removeIndividual();
+
+				if(population.size() <= Parameters.mimPopSize){
+					refillPopulation();
+				}
+			}
+
 			Individual parent1 = RoulletteSelection();
 			Individual parent2 = RoulletteSelection();
 			Individual child = UniformCrossover(parent1, parent2);
-			child = mutate(child);
+			// child = mutate(child);
 			child = mutate2(child);
 			child.evaluate(teamPursuit);
 			replace(child);
 			printStats();
-		}						
+		}
+
 		Individual best = getBest(population);
 		best.print();
-
 	}
 
 	private void printStats() {		
-		System.out.println("" + iteration + "\t best:" + getBest(population) + "\t \t worst:" + getWorst(population));
+		System.out.println("" + iteration + "\t best:" + getBest(population) + "\t \t worst:" + getWorst(population) + "\t pop size: " + population.size());
+	}
+
+	public void removeIndividual(){
+		population.remove(getWorst(population));
+	}
+
+	private void refillPopulation() {
+		while(population.size() < Parameters.popSize){
+			Individual individual = new Individual();
+			individual.initialise();
+			individual.evaluate(teamPursuit);
+			population.add(individual);
+		}
 	}
 
 	private void replace(Individual child) {
@@ -164,10 +188,11 @@ public class EA
 		return child1;
 	}
 
+	// this needs fixing
 	private Individual crossover(Individual parent1, Individual parent2) {
 		// probability of crossover happening
-		//if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
-		//	return parent1;
+		if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
+			return parent1;
 
 		// create empty child individual
 		Individual child = new Individual();
@@ -175,6 +200,9 @@ public class EA
 		// pick cut point - random cut-point along chromosome length
 		int crossoverPoint1 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
 		int crossoverPoint2 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
+
+		int crossoverPoint3 = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
+		int crossoverPoint4 = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
 
 		// point 1 should be smaller than point 2
 		if (crossoverPoint1 > crossoverPoint1)
@@ -184,24 +212,43 @@ public class EA
 			crossoverPoint2 = save;
 		}
 
-		// just copy the pacing strategy from p1 - not evolving in this version
-		for(int i = 0; i < parent1.pacingStrategy.length; i++){			
-			child.pacingStrategy[i] = parent1.pacingStrategy[i];
+		// point 3 should be smaller than point 4
+		if (crossoverPoint3 > crossoverPoint3)
+		{
+			int save = crossoverPoint3;
+			crossoverPoint3 = crossoverPoint4;
+			crossoverPoint4 = save;
 		}
 		
-		// genes from parent 1
+		// genes from parent 1 for childs transition strategy
 		for(int i = 0; i < crossoverPoint1; i++){
 			child.transitionStrategy[i] = parent1.transitionStrategy[i];
 		}
 
-		// genes from parent 2
+		// genes from parent 2 for childs transition strategy
 		for(int i = crossoverPoint1; i < crossoverPoint2; i++){
 			child.transitionStrategy[i] = parent2.transitionStrategy[i];
 		}
 
-		// genes from parent 1
-		for(int i = crossoverPoint2; i < parent2.transitionStrategy.length; i++){
-			child.transitionStrategy[i] = parent2.transitionStrategy[i];
+		// genes from parent 1 for childs transition strategy
+		for(int i = crossoverPoint2; i < parent1.transitionStrategy.length; i++){
+			child.transitionStrategy[i] = parent1.transitionStrategy[i];
+		}
+
+
+		// genes from parent 1 for childs pacing strategy
+		for(int i = 0; i < crossoverPoint3; i++){
+			child.pacingStrategy[i] = parent1.pacingStrategy[i];
+		}
+
+		// genes from parent 2 childs pacing strategy
+		for(int i = crossoverPoint3; i < crossoverPoint4; i++){
+			child.pacingStrategy[i] = parent2.pacingStrategy[i];
+		}
+
+		// genes from parent 1 childs pacing strategy
+		for(int i = crossoverPoint4; i < parent2.transitionStrategy.length; i++){
+			child.pacingStrategy[i] = parent2.pacingStrategy[i];
 		}
 		return child;
 	}

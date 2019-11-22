@@ -63,7 +63,7 @@ public class Individual {
 	public double getFitness(){
 		double fitness = 1000;		
 		if (result == null || result.getProportionCompleted() < 0.999){
-			return fitness;
+			return(1000 - (100 * result.getProportionCompleted()));
 		}
 		else{				
 			fitness = result.getFinishTime();
