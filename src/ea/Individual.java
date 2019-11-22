@@ -28,10 +28,7 @@ public class Individual {
 	public void initialise() {
 		for(int i = 0; i < transitionStrategy.length; i++)
 			transitionStrategy[i] = Parameters.rnd.nextBoolean();
-
-		for(int i = 0; i < pacingStrategy.length; i++)
-			pacingStrategy[i] = Parameters.DEFAULT_WOMENS_PACING_STRATEGY[i];
-
+		
 		for(int i = 0; i < pacingStrategy.length; i++)
 			pacingStrategy[i] = 500 - Parameters.rnd.nextInt(200);
 	}
@@ -124,8 +121,8 @@ public class Individual {
 		}
 		System.out.println("\r\n" + this);
 		best += this + "," + parameters;
-		System.out.println("best: "+best);
+		// System.out.println("best: "+best);
 		results += best;
-		System.out.println("-r: "+results);
+		// System.out.println("-r: "+results);
 	}
 }

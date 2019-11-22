@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38e805e0-80cb-43ed-8de2-cf1a387bad82" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/results.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/EA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/EA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/ExportData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/ExportData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ea/EA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/EA.java" afterDir="false" />
@@ -32,6 +34,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/4th year/MAS" />
   </component>
   <component name="RunDashboard">
@@ -91,5 +94,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

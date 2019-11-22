@@ -113,32 +113,28 @@ public class EA
 		return child;
 	}
 
-	private Individual RoulletteSelection() {
-		Individual returnIndividual = new Individual();
+	private Individual RoulletteSelection()
+	{
+		Individual temp = new Individual();
 
-		double totalFitness = 0.0;
-		ArrayList<Double> fitness = new ArrayList<>();
-
-		for(Individual individual : population)
-			totalFitness += individual.getFitness();
-
-		for(Individual individual : population)
-			fitness.add(((1 / individual.getFitness()) / totalFitness) * 100);
-
-		double random = ThreadLocalRandom.current().nextDouble(0, 100);
-
-		for(Individual individual : population)
+		double sum = 0;
+		for(Individual individual:population)
 		{
-			random -= individual.getFitness();
-
-			if(random <= 0)
-			{
-				returnIndividual = individual;
-				break;
-			}
+			sum += 1 / individual.getFitness();
+			temp = individual;
 		}
 
-		return returnIndividual;
+		double random = ThreadLocalRandom.current().nextDouble(0, 1) * sum;
+
+		double counter = 0;
+		for(Individual individual:population)
+		{
+			counter += 1 / individual.getFitness();
+			if (counter >= random)
+				return individual;
+		}
+
+		return temp;
 	}
 
 	private Individual UniformCrossover(Individual parent1, Individual parent2) {
