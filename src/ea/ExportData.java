@@ -30,7 +30,7 @@ public class ExportData implements Runnable
         System.out.println("------RESULTS-------");
         for (String r : results)
         {
-            System.out.println(results);
+            System.out.println(r);
         }
 
 

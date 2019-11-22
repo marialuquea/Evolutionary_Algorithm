@@ -17,7 +17,7 @@ public class Individual {
 	}
 
 	public String getResult(){
-		System.out.println("-----sending results: "+results);
+		// System.out.println("-----sending results: "+results);
 		return results;
 	}
 
