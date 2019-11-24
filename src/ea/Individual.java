@@ -61,7 +61,7 @@ public class Individual {
 	// complete 10% or 90% of the race
 	
 	public double getFitness(){
-		double fitness = 1000;		
+		double fitness = 1000;
 		if (result == null || result.getProportionCompleted() < 0.999){
 			return(1000 - (100 * result.getProportionCompleted()));
 		}
@@ -99,11 +99,16 @@ public class Individual {
 		String parameters = "";
 		parameters = parameters
 				+ Parameters.popSize + ","
+                + Parameters.mimPopSize + ","
+                + Parameters.reducePopSizeRate + ","
 				+ Parameters.tournamentSize + ","
 				+ Parameters.mutationRateMax + ","
 				+ Parameters.mutationProbability + ","
 				+ Parameters.crossoverProbability + ","
 				+ Parameters.maxIterations + ",";
+
+        System.out.println("\r\n" + this);
+        best += this + "," + parameters;
 
 		for(int i : pacingStrategy){
 			System.out.print(i + ",");
@@ -119,8 +124,7 @@ public class Individual {
 				best += "false,";
 			}
 		}
-		System.out.println("\r\n" + this);
-		best += this + "," + parameters;
+
 		// System.out.println("best: "+best);
 		results += best;
 		// System.out.println("-r: "+results);

@@ -1,10 +1,7 @@
 package ea;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.io.FileWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,23 +19,9 @@ public class ExportData implements Runnable
     {
         ArrayList<String> results = new ArrayList<>();
 
-        // read file with best iteration
-        /*
-        String filename = "results.csv";
-        try{
-            File file = new File(filename);
-            Scanner inputStream = new Scanner(file);
-            while (inputStream.hasNext()) {
-                String data = inputStream.next();
-                System.out.println(data);
-            }
-            inputStream.close();
-        }
-        catch (Exception e){ e.printStackTrace(); }
-        */
-
         // run EA 10 times
-        for (int i = 0; i <= 0; i++)
+        int times = 10;
+        for (int i = 0; i <= times; i++)
         {
             EA ea = new EA();
             Individual individual = new Individual();
@@ -55,10 +38,11 @@ public class ExportData implements Runnable
         System.out.println("------RESULTS-------");
         float best = 250;
         String bestRun = "";
-        for (String r : results){
-            System.out.println(r);
+        for (String r : results)
+        {
+            System.out.println("- "+r);
             String[] all = r.split(",");
-            String bestTime = all[45];
+            String bestTime = all[0];
             try{
                 Float f = Float.valueOf(bestTime);
                 if (f < best){
@@ -70,13 +54,23 @@ public class ExportData implements Runnable
         }
         System.out.println("\n\nBest Individual of 10 runs: "+bestRun);
 
-        // write bestRun to csv file
-        FileWriter csvWriter = null;
-        try {
-            csvWriter = new FileWriter("results.csv");
-            csvWriter.append(bestRun);
+        // export to file
+        try(FileWriter fw = new FileWriter("results.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            int averageScore = 0;
+            for (String r : results){
+                String[] all = r.split(",");
+                averageScore += Float.valueOf(all[0]);
+                out.println(r);
+            }
+            out.println("");
+            out.println("best individual: "+ bestRun);
+            out.println("averageScore: "+(averageScore / (times+1)));
+            out.println("");
         }
-        catch (IOException e) {  e.printStackTrace(); }
+        catch (IOException e) { e.printStackTrace(); }
 
     }
 }
