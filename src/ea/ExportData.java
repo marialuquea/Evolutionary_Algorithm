@@ -55,7 +55,7 @@ public class ExportData implements Runnable
         System.out.println("\n\nBest Individual of 10 runs: "+bestRun);
 
         // export to file
-        try(FileWriter fw = new FileWriter("results.txt", true);
+        try(FileWriter fw = new FileWriter("results/results.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {

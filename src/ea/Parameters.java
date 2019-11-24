@@ -14,5 +14,5 @@ public class Parameters
 	public static int mutationRateMax = 6; // out of len - initially 6, can be up to 23
 	public static double mutationProbability = 0.5; // initially 0.5
 	public static double crossoverProbability = 1.0; //initially 1.0
-	public static int maxIterations = 2; // initially 1000
+	public static int maxIterations = 5000; // initially 1000
 }

@@ -1,6 +1,11 @@
 package ea;
 
 import teamPursuit.*;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Individual {
@@ -61,12 +66,44 @@ public class Individual {
 	// complete 10% or 90% of the race
 	
 	public double getFitness(){
-		double fitness = 1000;
+		double fitness = 1000; // the less the better
 		if (result == null || result.getProportionCompleted() < 0.999){
+		    // race not completed, ran out of energy before finishing
+            // System.out.println("completed: "+(1000 - (100 * result.getProportionCompleted())));
+            //System.out.println("1000: "+((result.getProportionCompleted())));
+            //System.out.println("finish time: " + result.getFinishTime());
+            //System.out.println("energy remaining: " + result.getEnergyRemaining().length);
 			return(1000 - (100 * result.getProportionCompleted()));
+			// return fitness; // before
 		}
-		else{				
+		else{
+		    // race was completed
 			fitness = result.getFinishTime();
+			//System.out.println("finish time: " + result.getFinishTime());
+			//System.out.println("energy remaining: " + result.getEnergyRemaining());
+			//System.out.println(result.getEnergyRemaining().length);
+			int energyRemaining = 0;
+			for (int i = 0; i < result.getEnergyRemaining().length; i++) {
+				energyRemaining += result.getEnergyRemaining()[i];
+				//System.out.println("Cyclist " + (i+1) + " Energy Remaining: " + result.getEnergyRemaining()[i] + " joules\n");
+			}
+			//System.out.println("Team energy remaining: "+ energyRemaining);
+
+			int yes = 0;
+			if (yes <= 254)
+			{
+				// export to file
+				try(FileWriter fw = new FileWriter("results/energy2.csv", true);
+					BufferedWriter bw = new BufferedWriter(fw);
+					PrintWriter out = new PrintWriter(bw))
+				{
+					out.println(result.getFinishTime()+","+energyRemaining);
+					//System.out.println(result.getFinishTime()+","+energyRemaining);
+					yes++;
+				}
+				catch (IOException e) { e.printStackTrace(); }
+			}
+
 		}
 		return fitness;
 	}

@@ -107,7 +107,7 @@ public class EA
 
 		for(int i = 0; i < mutationRate; i++)
 		{
-				//inverts a random tranition
+				//inverts a random transition
 				int tIndex = Parameters.rnd.nextInt(child.transitionStrategy.length);
 				child.transitionStrategy[tIndex] = !child.transitionStrategy[tIndex];
 
