@@ -30,12 +30,13 @@ public class Individual {
 	// an individual is initialised with a random strategy that will evolve
 	// the pacing strategy is initialised to the default strategy and remains fixed
 
-	public void initialise() {
+	public void initialise(int start, int bound) {
 		for(int i = 0; i < transitionStrategy.length; i++)
 			transitionStrategy[i] = Parameters.rnd.nextBoolean();
-		
-		for(int i = 0; i < pacingStrategy.length; i++)
-			pacingStrategy[i] = 500 - Parameters.rnd.nextInt(200);
+
+		for(int i = 0; i < pacingStrategy.length; i++) {
+			pacingStrategy[i] = start - Parameters.rnd.nextInt(bound);
+		}
 	}
 	
 	// this is just there in case you want to check the default strategies
@@ -82,6 +83,7 @@ public class Individual {
 			//System.out.println("finish time: " + result.getFinishTime());
 			//System.out.println("energy remaining: " + result.getEnergyRemaining());
 			//System.out.println(result.getEnergyRemaining().length);
+			/*
 			int energyRemaining = 0;
 			for (int i = 0; i < result.getEnergyRemaining().length; i++) {
 				energyRemaining += result.getEnergyRemaining()[i];
@@ -103,6 +105,8 @@ public class Individual {
 				}
 				catch (IOException e) { e.printStackTrace(); }
 			}
+
+			 */
 
 		}
 		return fitness;

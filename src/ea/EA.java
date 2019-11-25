@@ -28,10 +28,7 @@ public class EA
 	private ArrayList<Individual> population = new ArrayList<Individual>();
 	private int iteration = 0;
 	
-	public EA() {
-		
-	}
-
+	public EA() { }
 
 	public Individual bestI(){
 		Individual best = getBest(population);
@@ -43,23 +40,18 @@ public class EA
 		// ea.run();
 	}
 
-	public void runAlgorithm() {
-		initialisePopulation();	
+	public void runAlgorithm(int start, int bound) {
+		initialisePopulation(start, bound);
 		System.out.println("finished init pop: "+ population.size());
 		iteration = 0;
-
 		while(iteration < Parameters.maxIterations){
 			iteration++;
-
 			if(iteration % Parameters.reducePopSizeRate == 0)
 			{
 				removeIndividual();
-
-				if(population.size() <= Parameters.mimPopSize){
-					refillPopulation();
-				}
+				if(population.size() <= Parameters.mimPopSize)
+					refillPopulation(start, bound);
 			}
-
 			Individual parent1 = RoulletteSelection();
 			Individual parent2 = RoulletteSelection();
 			Individual child = UniformCrossover(parent1, parent2);
@@ -69,7 +61,6 @@ public class EA
 			replace(child);
 			printStats();
 		}
-
 		Individual best = getBest(population);
 		best.print();
 	}
@@ -82,10 +73,10 @@ public class EA
 		population.remove(getWorst(population));
 	}
 
-	private void refillPopulation() {
+	private void refillPopulation(int start, int bound) {
 		while(population.size() < Parameters.popSize){
 			Individual individual = new Individual();
-			individual.initialise();
+			individual.initialise(start, bound);
 			individual.evaluate(teamPursuit);
 			population.add(individual);
 		}
@@ -186,6 +177,55 @@ public class EA
 		}
 
 		return child1;
+	}
+
+	private Individual multipoint(Individual parent1, Individual parent2)
+	{
+		if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
+			return parent1;
+
+		Individual child = new Individual();
+
+		int pacingCrossoverPoint1 = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
+		int pacingCrossoverPoint2 = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
+
+		if(pacingCrossoverPoint1 > pacingCrossoverPoint2)
+		{
+			int temp = pacingCrossoverPoint1;
+			pacingCrossoverPoint1 = pacingCrossoverPoint2;
+			pacingCrossoverPoint2 = temp;
+		}
+
+		for(int i = 0; i < pacingCrossoverPoint1; i++)
+			child.pacingStrategy[i] = parent1.pacingStrategy[i];
+
+		for(int i = pacingCrossoverPoint1; i < pacingCrossoverPoint2; i++)
+			child.pacingStrategy[i] = parent2.pacingStrategy[i];
+
+		for(int i = pacingCrossoverPoint2; i < parent1.pacingStrategy.length; i++)
+			child.pacingStrategy[i] = parent1.pacingStrategy[i];
+
+
+		int transitionCrossoverPoint1 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
+		int transitionCrossoverPoint2 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
+
+		if(transitionCrossoverPoint1 > transitionCrossoverPoint2)
+		{
+			int temp = transitionCrossoverPoint1;
+			transitionCrossoverPoint1 = transitionCrossoverPoint2;
+			transitionCrossoverPoint2 = temp;
+		}
+
+		for(int i = 0; i < transitionCrossoverPoint1; i++)
+			child.transitionStrategy[i] = parent1.transitionStrategy[i];
+
+		for(int i = transitionCrossoverPoint1; i < transitionCrossoverPoint2; i++)
+			child.transitionStrategy[i] = parent2.transitionStrategy[i];
+
+		for(int i = transitionCrossoverPoint2; i < parent1.transitionStrategy.length; i++)
+			child.transitionStrategy[i] = parent1.transitionStrategy[i];
+
+		return child;
 	}
 
 	// this needs fixing
@@ -295,11 +335,11 @@ public class EA
 		}
 	}
 
-	private void initialisePopulation() {
+	private void initialisePopulation(int start, int bound) {
 		population.clear();
 		while(population.size() < Parameters.popSize){
 			Individual individual = new Individual();
-			individual.initialise();			
+			individual.initialise(start, bound);
 			individual.evaluate(teamPursuit);
 			population.add(individual);
 							

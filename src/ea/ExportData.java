@@ -2,6 +2,8 @@ package ea;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,43 +20,74 @@ public class ExportData implements Runnable
     public void run()
     {
         ArrayList<String> results = new ArrayList<>();
+        ArrayList<Integer> pacings = new ArrayList<>();
 
-        // run EA 10 times
-        int times = 10;
-        for (int i = 0; i <= times; i++)
+        int start = 300;
+        int bound = 50;
+
+        int times = 27;
+        for (int i = 0; i <= times; i++) // run EA 10 times
         {
             EA ea = new EA();
             Individual individual = new Individual();
             System.out.println("");
-            ea.runAlgorithm();
+            ea.runAlgorithm(start, bound);
             individual = ea.bestI();
             String result = individual.getResult();
             results.add(result);
+            System.out.println("\ni: "+i+" start: "+start+"\tbound: "+bound);
+            String hola = ""+start+bound;
+            System.out.println(hola);
+            pacings.add(Integer.parseInt(hola));
 
-            System.out.println("End of loop "+i+"/10");
+            // next number
+            bound += 50;
+            if ((start - bound) <200) {
+                start += 50;
+                bound = 50;
+            }
+
+            System.out.println("End of loop "+i+"/"+times);
         }
 
         // after the 10 times, print the smallest time
         System.out.println("------RESULTS-------");
         float best = 250;
         String bestRun = "";
-        for (String r : results)
+
+        System.out.println("results.size(): "+results.size());
+        //for (String r : results)
+        int a = 0;
+        for (int i = 0; i < results.size(); i++)
         {
-            System.out.println("- "+r);
-            String[] all = r.split(",");
+
+            // export pacing strategies to file
+            String[] all = results.get(i).split(",");
+            float raceTime = Float.valueOf(all[0]);
+            System.out.println("- "+raceTime);
+            System.out.println(pacings.get(i));
+            try(FileWriter fw = new FileWriter("results/pacings3.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter out = new PrintWriter(bw))
+            {
+                out.println(pacings.get(i) + "," + raceTime);
+            }
+            catch (IOException e) { e.printStackTrace(); }
+
+            // set best race time
             String bestTime = all[0];
             try{
                 Float f = Float.valueOf(bestTime);
                 if (f < best){
                     best = f;
-                    bestRun = r;
+                    bestRun = results.get(i);
                 }
             }
             catch (Exception e) { e.printStackTrace(); }
         }
         System.out.println("\n\nBest Individual of 10 runs: "+bestRun);
 
-        // export to file
+        // export all results to file
         try(FileWriter fw = new FileWriter("results/results.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
@@ -71,6 +104,8 @@ public class ExportData implements Runnable
             out.println("");
         }
         catch (IOException e) { e.printStackTrace(); }
+
+
 
     }
 }
