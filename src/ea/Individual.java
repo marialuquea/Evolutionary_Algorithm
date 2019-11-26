@@ -74,7 +74,7 @@ public class Individual {
             //System.out.println("1000: "+((result.getProportionCompleted())));
             //System.out.println("finish time: " + result.getFinishTime());
             //System.out.println("energy remaining: " + result.getEnergyRemaining().length);
-			return(1000 - (100 * result.getProportionCompleted()));
+			return(500 - (100 * result.getProportionCompleted()));
 			// return fitness; // before
 		}
 		else{

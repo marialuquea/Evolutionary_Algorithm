@@ -396,3 +396,21 @@ averageScore: 423
 best individual: 216.41000000001353,30,20,30,5,6,0.5,1.0,30,441,361,517,418,383,296,529,445,548,308,501,341,255,502,491,521,219,346,393,439,409,310,459,true,true,false,true,false,true,false,true,true,true,true,false,true,true,true,false,true,false,false,true,false,true,
 averageScore: 447
 
+213.73400000001345,30,20,30,5,6,0.5,1.0,5000,496,449,443,302,412,476,472,483,362,394,428,360,340,333,491,500,349,429,351,484,476,395,450,true,false,true,false,true,false,false,false,true,false,true,false,false,true,true,false,true,true,false,true,true,false,
+214.91600000001472,30,20,30,5,6,0.5,1.0,5000,429,407,480,446,433,385,372,490,338,368,325,460,403,422,383,493,422,336,429,482,464,462,469,true,true,true,false,false,true,true,true,true,false,false,true,true,false,true,true,false,false,true,false,true,true,
+
+best individual: 213.73400000001345,30,20,30,5,6,0.5,1.0,5000,496,449,443,302,412,476,472,483,362,394,428,360,340,333,491,500,349,429,351,484,476,395,450,true,false,true,false,true,false,false,false,true,false,true,false,false,true,true,false,true,true,false,true,true,false,
+averageScore: 213
+
+220.90200000000968,30,20,30,5,6,0.5,1.0,5,495,382,317,304,358,441,348,356,324,393,427,486,416,350,347,378,476,307,341,458,356,352,368,true,false,true,false,true,true,true,false,false,true,true,false,true,true,true,false,true,false,true,false,true,true,
+221.68400000001174,30,20,30,5,6,0.5,1.0,5,397,407,367,347,384,477,408,359,366,459,414,436,396,370,448,381,352,328,313,308,312,456,342,true,false,true,true,false,true,true,false,true,true,false,false,true,true,false,false,false,true,false,false,false,true,
+
+best individual: 220.90200000000968,30,20,30,5,6,0.5,1.0,5,495,382,317,304,358,441,348,356,324,393,427,486,416,350,347,378,476,307,341,458,356,352,368,true,false,true,false,true,true,true,false,false,true,true,false,true,true,true,false,true,false,true,false,true,true,
+averageScore: 220
+
+906.25,30,20,30,5,6,0.5,1.0,5,311,398,315,433,455,434,379,377,487,340,331,317,336,397,398,341,473,585,437,427,301,302,319,false,true,false,false,false,false,true,false,true,false,false,true,true,true,true,true,true,true,true,false,false,true,
+223.81300000001318,30,20,30,5,6,0.5,1.0,5,323,427,418,310,305,471,365,487,461,491,336,370,405,380,434,304,316,491,392,334,335,320,462,false,true,false,false,true,false,false,false,true,true,false,false,true,false,true,true,false,false,false,true,true,true,
+
+best individual: 223.81300000001318,30,20,30,5,6,0.5,1.0,5,323,427,418,310,305,471,365,487,461,491,336,370,405,380,434,304,316,491,392,334,335,320,462,false,true,false,false,true,false,false,false,true,true,false,false,true,false,true,true,false,false,false,true,true,true,
+averageScore: 564
+

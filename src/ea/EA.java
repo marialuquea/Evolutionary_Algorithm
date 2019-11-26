@@ -48,21 +48,24 @@ public class EA
 			iteration++;
 			if(iteration % Parameters.reducePopSizeRate == 0)
 			{
-				removeIndividual();
+				removeIndividual(); // every 30 iterations, remove worst individual
 				if(population.size() <= Parameters.mimPopSize)
-					refillPopulation(start, bound);
+					refillPopulation(start, bound); // refill when limit is reached
 			}
 			Individual parent1 = RoulletteSelection();
 			Individual parent2 = RoulletteSelection();
 			Individual child = UniformCrossover(parent1, parent2);
 			// child = mutate(child);
-			child = mutate2(child);
+			child = mutate(child);
 			child.evaluate(teamPursuit);
 			replace(child);
 			printStats();
+
 		}
+
 		Individual best = getBest(population);
 		best.print();
+		hill_climber(best);
 	}
 
 	private void printStats() {		
@@ -74,6 +77,7 @@ public class EA
 	}
 
 	private void refillPopulation(int start, int bound) {
+		// refill population with random seeds
 		while(population.size() < Parameters.popSize){
 			Individual individual = new Individual();
 			individual.initialise(start, bound);
@@ -90,67 +94,121 @@ public class EA
 		}
 	}
 
-	private Individual mutate2(Individual child) {
+	private Individual hill_climber(Individual i){
+
+		System.out.println("\n---HILL CLIMBER---");
+		Individual best = i.copy();
+		Individual temp = i.copy(); // the best seed after running the EA
+		double before = temp.getFitness();
+
+		for (int j = 0; j < 2000; j++)
+		{
+			// flip one random transition gene
+			int index_transition = Parameters.rnd.nextInt(temp.transitionStrategy.length);
+			temp.transitionStrategy[index_transition] = !temp.transitionStrategy[index_transition];
+
+			// change the value of 1 pacing value
+			int mutationChange = 200 - Parameters.rnd.nextInt(100);
+			int index_pacing = Parameters.rnd.nextInt(temp.pacingStrategy.length);
+
+			// ensure mutation is valid
+			if (temp.pacingStrategy[index_pacing] + mutationChange >= 200 && temp.pacingStrategy[index_pacing] + mutationChange <= 1200)
+				temp.pacingStrategy[index_pacing] = temp.pacingStrategy[index_pacing] + mutationChange;
+
+			temp.evaluate(EA.teamPursuit);
+			//System.out.println("f: "+temp.getFitness());
+
+			if (temp.getFitness() <  best.getFitness()) {
+				best = temp.copy();
+				System.out.println("better: "+best.getFitness()+" at iteration "+j);
+			}
+			else
+				temp = best.copy();
+		}
+		System.out.println("best: "+best.getFitness());
+		return best;
+	}
+
+	// mutate and swamp mutation
+	// swaps 2 elements but doesn't introduce new genes so less exploration and limits the scope of the search space in which the algorithm can explore
+
+	private Individual mutate(Individual child) {
+		// mutation probability
 		if(Parameters.rnd.nextDouble() > Parameters.mutationProbability)
 			return child;
 
+		// mutate 1 to 6 genes
 		int mutationRate = 1 + Parameters.rnd.nextInt(Parameters.mutationRateMax);
 
 		for(int i = 0; i < mutationRate; i++)
 		{
-				//inverts a random transition
-				int tIndex = Parameters.rnd.nextInt(child.transitionStrategy.length);
-				child.transitionStrategy[tIndex] = !child.transitionStrategy[tIndex];
+			// inverts a random transition from true to false and vice versa
+			int index_transition = Parameters.rnd.nextInt(child.transitionStrategy.length);
+			child.transitionStrategy[index_transition] = !child.transitionStrategy[index_transition];
 
-				//
-				int mutationChange = ThreadLocalRandom.current().nextInt(-50,50);
-				int pIndex = Parameters.rnd.nextInt(child.pacingStrategy.length);
+			// the bigger the mutation, the more diversity
+			int mutationChange = 200 - Parameters.rnd.nextInt(100);
+			int index_pacing = Parameters.rnd.nextInt(child.pacingStrategy.length);
 
-				if (child.pacingStrategy[pIndex] + mutationChange >= 200 && child.pacingStrategy[pIndex] + mutationChange <= 1200)
-					child.pacingStrategy[pIndex] = child.pacingStrategy[pIndex] + mutationChange;
+			// ensure mutation is valid
+			if (child.pacingStrategy[index_pacing] + mutationChange >= 200 && child.pacingStrategy[index_pacing] + mutationChange <= 1200)
+				child.pacingStrategy[index_pacing] = child.pacingStrategy[index_pacing] + mutationChange;
 		}
 		return child;
 	}
 
-	private Individual mutate(Individual child) {
-		if(Parameters.rnd.nextDouble() > Parameters.mutationProbability){
-			return child;
-		}
-		// choose how many elements to alter
-		int mutationRate = 1 + Parameters.rnd.nextInt(Parameters.mutationRateMax);
-		
-		// mutate the transition strategy
-			//mutate the transition strategy by flipping boolean value
-			for(int i = 0; i < mutationRate; i++){
-				int index = Parameters.rnd.nextInt(child.transitionStrategy.length);
-				child.transitionStrategy[index] = !child.transitionStrategy[index];
-			}
-		return child;
-	}
+	private Individual RoulletteSelection() {
+		// SELECTION METHOD
+		// the lower the race time, the higher the fitness
+		Individual parent = new Individual(); // new empty parent
 
-	private Individual RoulletteSelection()
+		// adding circle portions to a total circle area
+		double total = 0; // adds up all fitnesses
+		for(Individual i : population)
+		{
+			// reverse it so a smaller fitness represents the biggest part of the circle and therefore has a higher change of being selected to be a parent
+			total += 1 / i.getFitness(); // total size of circle being added to total
+			parent = i;
+		}
+
+		// spinner - percentage of circle (0-1) * area of circle gives a position in the circle
+		double spinner = ThreadLocalRandom.current().nextDouble(0, 1) * total; // create a random number between 0 and 1
+
+		double count = 0; // go through all the circle until we reach the spinner.
+		for(Individual i : population) {
+			count += (1 / i.getFitness());
+			if (count >= spinner) // when the spinner is reached, return that parent
+				return i;
+		}
+		return parent;
+	} // UNDERSTAND
+
+	/*
+	private Individual RankSelection()
 	{
-		Individual temp = new Individual();
+		Individual parent = new Individual(); // new empty parent
 
-		double sum = 0;
-		for(Individual individual:population)
+		double scalingFactor = ThreadLocalRandom.current().nextDouble(0, 1) + 1;
+		System.out.println("scalingFactor: "+scalingFactor);
+
+		ArrayList<Individual> rank = new ArrayList<>();
+
+		for (Individual i : population)
 		{
-			sum += 1 / individual.getFitness();
-			temp = individual;
+			if (rank.isEmpty())
+				rank.add(i);
+
+			for (int j = 0; j < rank.size(); j++)
+			{
+				if (i.getFitness() > rank.get(j).getFitness())
+					rank.put
+			}
 		}
 
-		double random = ThreadLocalRandom.current().nextDouble(0, 1) * sum;
-
-		double counter = 0;
-		for(Individual individual:population)
-		{
-			counter += 1 / individual.getFitness();
-			if (counter >= random)
-				return individual;
-		}
-
-		return temp;
+		return parent;
 	}
+
+	 */
 
 	private Individual UniformCrossover(Individual parent1, Individual parent2) {
 		if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
@@ -179,22 +237,27 @@ public class EA
 		return child1;
 	}
 
-	private Individual multipoint(Individual parent1, Individual parent2)
-	{
+	// partially mapped crossover
+	private Individual multipoint(Individual parent1, Individual parent2) {
+		// crossover probability
 		if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
 			return parent1;
 
-		Individual child = new Individual();
+		Individual child = new Individual(); // new empty child
 
+		// PACING
+		// random crossover points
 		int pacingCrossoverPoint1 = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
 		int pacingCrossoverPoint2 = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
 
+		// make sure first crossover point is before second one
 		if(pacingCrossoverPoint1 > pacingCrossoverPoint2)
 		{
 			int temp = pacingCrossoverPoint1;
 			pacingCrossoverPoint1 = pacingCrossoverPoint2;
 			pacingCrossoverPoint2 = temp;
 		}
+
 
 		for(int i = 0; i < pacingCrossoverPoint1; i++)
 			child.pacingStrategy[i] = parent1.pacingStrategy[i];
@@ -205,7 +268,7 @@ public class EA
 		for(int i = pacingCrossoverPoint2; i < parent1.pacingStrategy.length; i++)
 			child.pacingStrategy[i] = parent1.pacingStrategy[i];
 
-
+		// TRANSITION
 		int transitionCrossoverPoint1 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
 		int transitionCrossoverPoint2 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
 
@@ -228,68 +291,30 @@ public class EA
 		return child;
 	}
 
-	// this needs fixing
-	private Individual crossover(Individual parent1, Individual parent2) {
-		// probability of crossover happening
-		if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability)
+	private Individual crossover_initial(Individual parent1, Individual parent2) {
+		if(Parameters.rnd.nextDouble() > Parameters.crossoverProbability){
 			return parent1;
-
-		// create empty child individual
+		}
 		Individual child = new Individual();
 
-		// pick cut point - random cut-point along chromosome length
-		int crossoverPoint1 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
-		int crossoverPoint2 = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
+		int crossoverPoint_t = Parameters.rnd.nextInt(parent1.transitionStrategy.length);
+		int crossoverPoint_p = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
 
-		int crossoverPoint3 = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
-		int crossoverPoint4 = Parameters.rnd.nextInt(parent1.pacingStrategy.length);
-
-		// point 1 should be smaller than point 2
-		if (crossoverPoint1 > crossoverPoint1)
-		{
-			int save = crossoverPoint1;
-			crossoverPoint1 = crossoverPoint2;
-			crossoverPoint2 = save;
-		}
-
-		// point 3 should be smaller than point 4
-		if (crossoverPoint3 > crossoverPoint3)
-		{
-			int save = crossoverPoint3;
-			crossoverPoint3 = crossoverPoint4;
-			crossoverPoint4 = save;
-		}
-		
-		// genes from parent 1 for childs transition strategy
-		for(int i = 0; i < crossoverPoint1; i++){
+		// transition
+		for(int i = 0; i < crossoverPoint_t; i++){
 			child.transitionStrategy[i] = parent1.transitionStrategy[i];
 		}
-
-		// genes from parent 2 for childs transition strategy
-		for(int i = crossoverPoint1; i < crossoverPoint2; i++){
+		for(int i = crossoverPoint_t; i < parent2.transitionStrategy.length; i++){
 			child.transitionStrategy[i] = parent2.transitionStrategy[i];
 		}
-
-		// genes from parent 1 for childs transition strategy
-		for(int i = crossoverPoint2; i < parent1.transitionStrategy.length; i++){
-			child.transitionStrategy[i] = parent1.transitionStrategy[i];
-		}
-
-
-		// genes from parent 1 for childs pacing strategy
-		for(int i = 0; i < crossoverPoint3; i++){
+		// pacing
+		for(int i = 0; i < crossoverPoint_p; i++){
 			child.pacingStrategy[i] = parent1.pacingStrategy[i];
 		}
-
-		// genes from parent 2 childs pacing strategy
-		for(int i = crossoverPoint3; i < crossoverPoint4; i++){
+		for(int i = crossoverPoint_p; i < parent2.pacingStrategy.length; i++){
 			child.pacingStrategy[i] = parent2.pacingStrategy[i];
 		}
 
-		// genes from parent 1 childs pacing strategy
-		for(int i = crossoverPoint4; i < parent2.transitionStrategy.length; i++){
-			child.pacingStrategy[i] = parent2.pacingStrategy[i];
-		}
 		return child;
 	}
 
@@ -299,10 +324,10 @@ public class EA
 	 */
 	private Individual tournamentSelection() {
 		ArrayList<Individual> candidates = new ArrayList<Individual>();
-		for(int i = 0; i < Parameters.tournamentSize; i++){
-			candidates.add(population.get(Parameters.rnd.nextInt(population.size())));
+		for(int i = 0; i < Parameters.tournamentSize; i++){ // choose a number of chromosomes to participate in the tournament
+			candidates.add(population.get(Parameters.rnd.nextInt(population.size()))); // add random pop to array
 		}
-		return getBest(candidates).copy();
+		return getBest(candidates).copy(); // return best one from array
 	}
 
 	private Individual getBest(ArrayList<Individual> aPopulation) {
