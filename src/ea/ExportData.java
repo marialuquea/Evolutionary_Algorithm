@@ -24,18 +24,32 @@ public class ExportData implements Runnable
 
         int start = 500;
         int bound = 200;
+        String [] selection = Parameters.selection;     // 3
+        String [] crossover = Parameters.crossover;     // 3
+        String [] mutation = Parameters.mutation;       // 2
+        String [] diversity = Parameters.diversity;     // 2
 
-        int times = 30;
+        int idx = 0;
+        int times = 19;
         for (int i = 0; i <= times; i++) // run EA 30 times to get average
         {
+
+            if ((i % 10 == 0) && (i != 0)) {
+                idx++;
+            }
+
+            System.out.println("--i: "+i);
             EA ea = new EA();
             Individual individual = new Individual();
-            System.out.println("");
-            ea.runAlgorithm(start, bound);
+            System.out.println("------SELECTION: "+selection[idx]);
+            ea.runAlgorithm(start, bound, selection[idx], crossover[0], mutation[0], diversity[0]);
             individual = ea.getBestIndividual();
             String result = individual.getResult();
             results.add(result);
+
+
             /*
+            ----EVALUATING INITIALISING STRATEGY----
             System.out.println("\ni: "+i+" start: "+start+"\tbound: "+bound);
             String hola = ""+start+bound;
             System.out.println(hola);
@@ -51,7 +65,7 @@ public class ExportData implements Runnable
         }
 
         // after the n times, print the smallest time
-        System.out.println("------RESULTS-------");
+        System.out.println("\n------RESULTS-------");
         float best = 250;
         String bestRun = "";
         for (int i = 0; i < results.size(); i++)
@@ -82,7 +96,7 @@ public class ExportData implements Runnable
             }
             catch (Exception e) { e.printStackTrace(); }
         }
-        System.out.println("\n\nBest Individual of 10 runs: "+bestRun);
+        System.out.println("\n\nBest Individual: "+bestRun);
 
         // export all results to file
         try(FileWriter fw = new FileWriter("results/results.txt", true);

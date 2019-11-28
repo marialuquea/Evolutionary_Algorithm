@@ -26,10 +26,6 @@ public class Individual {
 		return results;
 	}
 
-	// this code just evolves the transition strategy
-	// an individual is initialised with a random strategy that will evolve
-	// the pacing strategy is initialised to the default strategy and remains fixed
-
 	public void initialise(int start, int bound) {
 		for(int i = 0; i < transitionStrategy.length; i++)
 			transitionStrategy[i] = Parameters.rnd.nextBoolean();
@@ -50,8 +46,7 @@ public class Individual {
 		}
 		
 	}
-	
-	
+
 	public void evaluate(TeamPursuit teamPursuit){		
 		try {
 			result = teamPursuit.simulate(transitionStrategy, pacingStrategy);
@@ -59,23 +54,14 @@ public class Individual {
 			e.printStackTrace();
 		}		
 	}
-	
-	// this is a very basic fitness function
-	// if the race is not completed, the chromosome gets fitness 1000
-	// otherwise, the fitness is equal to the time taken
-	// chromosomes that don't complete all get the same fitness (i.e regardless of whether they 
-	// complete 10% or 90% of the race
-	
+
 	public double getFitness(){
 		double fitness = 1000; // the less the better
 		if (result == null || result.getProportionCompleted() < 0.999){
 		    // race not completed, ran out of energy before finishing
-            // System.out.println("completed: "+(1000 - (100 * result.getProportionCompleted())));
-            //System.out.println("1000: "+((result.getProportionCompleted())));
             //System.out.println("finish time: " + result.getFinishTime());
             //System.out.println("energy remaining: " + result.getEnergyRemaining().length);
 			return(500 - (100 * result.getProportionCompleted()));
-			// return fitness; // before
 		}
 		else{
 		    // race was completed
@@ -84,6 +70,9 @@ public class Individual {
 			//System.out.println("energy remaining: " + result.getEnergyRemaining());
 			//System.out.println(result.getEnergyRemaining().length);
 			/*
+
+			---USED WHILE EVALUATING FITNESS FUNCTION TO PLOT GRAPH---
+
 			int energyRemaining = 0;
 			for (int i = 0; i < result.getEnergyRemaining().length; i++) {
 				energyRemaining += result.getEnergyRemaining()[i];
@@ -111,9 +100,7 @@ public class Individual {
 		}
 		return fitness;
 	}
-	
-	
-	
+
 	public Individual copy(){
 		Individual individual = new Individual();
 		for(int i = 0; i < transitionStrategy.length; i++){

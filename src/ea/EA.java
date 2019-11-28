@@ -36,7 +36,7 @@ public class EA
 		// ea.run();
 	}
 
-	public void runAlgorithm(int start, int bound) {
+	public void runAlgorithm(int start, int bound, String selection, String crossover, String mutation, String diversity) {
 		initialisePopulation(start, bound);
 		System.out.println("finished init pop: "+ population.size());
 		iteration = 0;
@@ -48,20 +48,39 @@ public class EA
 				if(population.size() <= Parameters.mimPopSize)
 					refillPopulation(start, bound); // refill when limit is reached
 			}
-			Individual parent1 = RoulletteSelection();
-			Individual parent2 = RoulletteSelection();
-			Individual child = UniformCrossover(parent1, parent2);
-			// child = mutate(child);
-			child = swapMutation(child);
+			// SELECTION OPTIONS
+			Individual parent1 = new Individual();
+			Individual parent2 = new Individual();
+			if (selection.equals("roulette")){
+				parent1 = RouletteSelection();
+				parent2 = RouletteSelection(); }
+			if (selection.equals("tournament")){
+				parent1 = tournamentSelection();
+				parent2 = tournamentSelection(); }
+
+			// CROSSOVER OPTIONS
+			Individual child = new Individual();
+			if (crossover.equals("uniform"))
+				child = UniformCrossover(parent1, parent2);
+			if (crossover.equals("multipoint"))
+				child = multipoint(parent1, parent2);
+			if (crossover.equals("onepoint"))
+				child = crossover_initial(parent1, parent2);
+
+			// MUTATION OPTIONS
+			if (mutation.equals("simple"))
+				child = mutate(child);
+			if (mutation.equals("swap"))
+				child = swapMutation(child);
+
 			child.evaluate(teamPursuit);
 			replace(child);
 			printStats();
-
 		}
-
 		Individual best = getBest(population);
 		best.print();
-		hill_climber(best);
+		if (diversity.equals("hillclimber")) {}
+			//hill_climber(best);
 	}
 
 	private void printStats() {		
@@ -82,7 +101,7 @@ public class EA
 
 
 	// SELECTION METHODS
-	private Individual RoulletteSelection() {
+	private Individual RouletteSelection() {
 		// the lower the race time, the higher the fitness
 		Individual parent = new Individual(); // new empty parent
 
@@ -103,28 +122,6 @@ public class EA
 			count += (1 / i.getFitness());
 			if (count >= spinner) // when the spinner is reached, return that parent
 				return i;
-		}
-		return parent;
-	}
-
-	private Individual RankSelection() {
-		Individual parent = new Individual(); // new empty parent
-
-		double scalingFactor = ThreadLocalRandom.current().nextDouble(0, 1) + 1;
-		System.out.println("scalingFactor: "+scalingFactor);
-
-		ArrayList<Individual> rank = new ArrayList<>();
-
-		for (Individual i : population)
-		{
-			if (rank.isEmpty())
-				rank.add(i);
-
-			for (int j = 0; j < rank.size(); j++)
-			{
-				if (i.getFitness() > rank.get(j).getFitness())
-					rank.add(i);
-			}
 		}
 		return parent;
 	}
@@ -301,6 +298,7 @@ public class EA
 		return child;
 	}
 
+
 	// OTHER
 	private Individual getBest(ArrayList<Individual> aPopulation) {
 		double bestFitness = Double.MAX_VALUE;
@@ -346,7 +344,7 @@ public class EA
 	}
 
 
-	// DIVERSITY - SAWTOOTH
+	// DIVERSITY - SAWTOOTH & HILL CLIMBER
 	public void removeIndividual(){	population.remove(getWorst(population)); }
 
 	private void refillPopulation(int start, int bound) {
@@ -366,7 +364,7 @@ public class EA
 		Individual temp = i.copy(); // the best seed after running the EA
 		double before = temp.getFitness();
 
-		for (int j = 0; j < 2000; j++)
+		for (int j = 0; j < 100; j++)
 		{
 			// flip one random transition gene
 			int index_transition = Parameters.rnd.nextInt(temp.transitionStrategy.length);
