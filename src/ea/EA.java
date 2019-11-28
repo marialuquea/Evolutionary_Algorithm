@@ -18,7 +18,6 @@ package ea;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import teamPursuit.TeamPursuit;
 import teamPursuit.WomensTeamPursuit;
 
@@ -347,7 +346,7 @@ public class EA
 	}
 
 
-	// DIVERSITY
+	// DIVERSITY - SAWTOOTH
 	public void removeIndividual(){	population.remove(getWorst(population)); }
 
 	private void refillPopulation(int start, int bound) {

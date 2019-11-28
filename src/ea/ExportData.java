@@ -25,8 +25,8 @@ public class ExportData implements Runnable
         int start = 500;
         int bound = 200;
 
-        int times = 1;
-        for (int i = 0; i <= times; i++) // run EA 10 times
+        int times = 30;
+        for (int i = 0; i <= times; i++) // run EA 30 times to get average
         {
             EA ea = new EA();
             Individual individual = new Individual();
@@ -47,7 +47,7 @@ public class ExportData implements Runnable
                 bound = 50;
             }     */
 
-            System.out.println("End of loop "+i+"/"+times+1);
+            //System.out.println("End of loop "+i+"/"+times+1);
         }
 
         // after the n times, print the smallest time
