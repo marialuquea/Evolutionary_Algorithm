@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d7e475f-8b69-4f7f-839c-d85f71315ec4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/EA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/EA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/ExportData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/ExportData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Individual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/Cyclist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/Cyclist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/MensTeamPursuit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/MensTeamPursuit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/SimulationResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/SimulationResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/TeamPursuit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/TeamPursuit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/WomensTeamPursuit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/teamPursuit/WomensTeamPursuit.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/results.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ea/EA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/EA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ea/ExportData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/ExportData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ea/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ea/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Parameters.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +55,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
