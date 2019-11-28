@@ -32,7 +32,7 @@ public class ExportData implements Runnable
             Individual individual = new Individual();
             System.out.println("");
             ea.runAlgorithm(start, bound);
-            individual = ea.bestI();
+            individual = ea.getBestIndividual();
             String result = individual.getResult();
             results.add(result);
             /*

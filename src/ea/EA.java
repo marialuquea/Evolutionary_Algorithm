@@ -315,6 +315,11 @@ public class EA
 		return best;
 	}
 
+	public Individual getBestIndividual(){
+		Individual best = getBest(population);
+		return best;
+	}
+
 	private void replace(Individual child) {
 		Individual worst = getWorst(population);
 		if(child.getFitness() < worst.getFitness()){
