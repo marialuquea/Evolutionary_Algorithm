@@ -16,6 +16,6 @@ public class Parameters
 	public static double crossoverProbability = 1.0; //initially 1.0
 	public static int maxIterations = 5000; // initially 1000
 
-	public static int [] pacingNumbers = {300, 350, 400, 450, 500, 550};
-	public static int [] bound = {50, 100, 150, 200, 250, 300};
+	// public static int [] pacingNumbers = {300, 350, 400, 450, 500, 550};
+	// public static int [] bound = {50, 100, 150, 200, 250, 300};
 }

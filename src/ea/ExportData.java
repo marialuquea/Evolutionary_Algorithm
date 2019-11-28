@@ -20,7 +20,7 @@ public class ExportData implements Runnable
     public void run()
     {
         ArrayList<String> results = new ArrayList<>();
-        ArrayList<Integer> pacings = new ArrayList<>();
+        // ArrayList<Integer> pacings = new ArrayList<>();
 
         int start = 500;
         int bound = 200;
@@ -35,35 +35,33 @@ public class ExportData implements Runnable
             individual = ea.bestI();
             String result = individual.getResult();
             results.add(result);
+            /*
             System.out.println("\ni: "+i+" start: "+start+"\tbound: "+bound);
             String hola = ""+start+bound;
             System.out.println(hola);
             pacings.add(Integer.parseInt(hola));
-
             // next number
-            /*
             bound += 50;
             if ((start - bound) <200) {
                 start += 50;
                 bound = 50;
-            }
-             */
+            }     */
 
-            System.out.println("End of loop "+i+"/"+times);
+            System.out.println("End of loop "+i+"/"+times+1);
         }
 
-        // after the 10 times, print the smallest time
+        // after the n times, print the smallest time
         System.out.println("------RESULTS-------");
         float best = 250;
         String bestRun = "";
         for (int i = 0; i < results.size(); i++)
         {
             String[] all = results.get(i).split(",");
-            // export pacing strategies to file
             float raceTime = Float.valueOf(all[0]);
             System.out.println("- "+raceTime);
-            System.out.println(pacings.get(i));
             /*
+            System.out.println(pacings.get(i));
+
             try(FileWriter fw = new FileWriter("results/pacings3.txt", true);
                 BufferedWriter bw = new BufferedWriter(fw);
                 PrintWriter out = new PrintWriter(bw))

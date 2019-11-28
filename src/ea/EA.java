@@ -17,6 +17,8 @@ package ea;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
+
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import teamPursuit.TeamPursuit;
 import teamPursuit.WomensTeamPursuit;
 
@@ -51,7 +53,7 @@ public class EA
 			Individual parent2 = RoulletteSelection();
 			Individual child = UniformCrossover(parent1, parent2);
 			// child = mutate(child);
-			child = mutate(child);
+			child = swapMutation(child);
 			child.evaluate(teamPursuit);
 			replace(child);
 			printStats();
@@ -243,21 +245,12 @@ public class EA
 		}
 
 		return child;
-	}	private Individual getBest(ArrayList<Individual> aPopulation) {
-	double bestFitness = Double.MAX_VALUE;
-	Individual best = null;
-	for(Individual individual : aPopulation){
-		if(individual.getFitness() < bestFitness || best == null){
-			best = individual;
-			bestFitness = best.getFitness();
-		}
 	}
-	return best;
-}
 
 
 	// MUTATION METHODS
 	private Individual mutate(Individual child) {
+
 		// mutation probability
 		if(Parameters.rnd.nextDouble() > Parameters.mutationProbability)
 			return child;
@@ -281,19 +274,44 @@ public class EA
 		}
 		return child;
 	}
-	// mutate by swap mutation
-	// swaps 2 elements but doesn't introduce new genes so less exploration and limits the scope of the search space in which the algorithm can explore
+
 	private Individual swapMutation(Individual child){
+
 		// mutation probability
 		if(Parameters.rnd.nextDouble() > Parameters.mutationProbability)
 			return child;
 
+		// transition strategy swap
+		int index1 = Parameters.rnd.nextInt(child.transitionStrategy.length);
+		int index2 = Parameters.rnd.nextInt(child.transitionStrategy.length);
+		Boolean swap1 = child.transitionStrategy[index1];
+		Boolean swap2 = child.transitionStrategy[index2];
+		Boolean temp = swap1;
+		child.transitionStrategy[index1] = swap2;
+		child.transitionStrategy[index2] = temp;
 
+		// pacing strategy swap
+		index1 = Parameters.rnd.nextInt(child.pacingStrategy.length);
+		index2 = Parameters.rnd.nextInt(child.pacingStrategy.length);
+		int swap_1 = child.pacingStrategy[index1];
+		int swap_2 = child.pacingStrategy[index2];
+		int temp_ = swap_1;
+		child.pacingStrategy[index1] = swap_2;
+		child.pacingStrategy[index2] = swap_1;
+
+		return child;
 	}
 
 	// OTHER
-	public Individual bestI(){
-		Individual best = getBest(population);
+	private Individual getBest(ArrayList<Individual> aPopulation) {
+		double bestFitness = Double.MAX_VALUE;
+		Individual best = null;
+		for(Individual individual : aPopulation){
+			if(individual.getFitness() < bestFitness || best == null){
+				best = individual;
+				bestFitness = best.getFitness();
+			}
+		}
 		return best;
 	}
 
@@ -325,9 +343,7 @@ public class EA
 
 
 	// DIVERSITY
-	public void removeIndividual(){
-		population.remove(getWorst(population));
-	}
+	public void removeIndividual(){	population.remove(getWorst(population)); }
 
 	private void refillPopulation(int start, int bound) {
 		// refill population with random seeds
@@ -360,15 +376,15 @@ public class EA
 			if (temp.pacingStrategy[index_pacing] + mutationChange >= 200 && temp.pacingStrategy[index_pacing] + mutationChange <= 1200)
 				temp.pacingStrategy[index_pacing] = temp.pacingStrategy[index_pacing] + mutationChange;
 
-			temp.evaluate(EA.teamPursuit);
-			//System.out.println("f: "+temp.getFitness());
+			temp.evaluate(EA.teamPursuit); // evaluate new individual
 
+			// if after mutation, individual is better, now work on that one
 			if (temp.getFitness() <  best.getFitness()) {
 				best = temp.copy();
 				System.out.println("better: "+best.getFitness()+" at iteration "+j);
 			}
 			else
-				temp = best.copy();
+				temp = best.copy(); // forget about the mutated allele and work on first one
 		}
 		System.out.println("best: "+best.getFitness());
 		return best;
