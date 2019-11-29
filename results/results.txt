@@ -502,6 +502,8 @@ averageScore: 219
 best individual: 212.9020000000149,30,20,30,5,6,0.5,1.0,5000,448,364,427,491,481,441,346,458,348,596,455,626,437,477,453,440,464,442,352,345,425,331,324,false,true,true,false,true,true,true,true,true,false,true,true,false,false,false,false,false,false,true,false,true,false,
 averageScore: 213
 
+---- SELECTION : tournament
+
 213.28400000001673,30,20,30,5,6,0.5,1.0,5000,384,462,472,407,357,349,366,612,307,331,498,475,350,431,497,587,500,383,385,472,451,603,433,false,true,false,false,true,true,false,true,true,true,true,false,true,false,true,false,false,false,true,true,false,false,
 213.5400000000137,30,20,30,5,6,0.5,1.0,5000,491,335,484,471,415,315,318,462,391,438,444,414,439,638,347,350,442,471,487,470,423,366,379,true,false,false,false,true,false,false,true,true,true,true,false,false,true,true,true,false,true,true,false,false,false,
 215.96400000001574,30,20,30,5,6,0.5,1.0,5000,376,452,304,312,466,419,419,458,425,596,575,340,450,626,422,319,353,488,359,386,332,458,490,true,true,false,true,false,false,true,true,true,false,true,false,true,true,true,true,false,true,false,true,false,true,
@@ -517,3 +519,63 @@ averageScore: 213
 best individual: 213.28400000001673,30,20,30,5,6,0.5,1.0,5000,384,462,472,407,357,349,366,612,307,331,498,475,350,431,497,587,500,383,385,472,451,603,433,false,true,false,false,true,true,false,true,true,true,true,false,true,false,true,false,false,false,true,true,false,false,
 averageScore: 214
 
+---- SELECTION: roulette
+
+212.41400000001468,30,20,30,5,6,0.5,1.0,5000,485,402,397,424,482,380,465,500,500,324,405,460,330,359,465,458,499,438,533,381,458,399,312,true,true,true,false,true,false,true,true,true,true,false,true,true,false,true,true,false,false,false,true,true,false,
+213.35400000001397,30,20,30,5,6,0.5,1.0,5000,491,362,318,597,402,397,435,454,485,357,502,400,379,601,326,450,473,477,338,333,464,318,331,true,true,true,true,true,true,false,false,true,false,false,true,false,false,true,true,true,true,true,false,true,false,
+213.89900000001316,30,20,30,5,6,0.5,1.0,5000,498,628,443,374,421,411,623,326,329,419,454,496,381,323,439,404,319,367,445,460,573,427,309,true,false,false,false,true,false,true,true,false,false,false,false,true,false,false,false,false,true,true,true,true,false,
+213.81400000001358,30,20,30,5,6,0.5,1.0,5000,498,331,464,468,411,452,387,463,395,369,418,497,413,335,485,425,528,334,425,412,397,382,387,true,true,false,true,false,true,true,true,false,true,true,true,false,true,true,true,false,false,true,false,true,false,
+214.2920000000142,30,20,30,5,6,0.5,1.0,5000,452,586,415,334,466,360,346,400,446,447,462,402,320,427,349,488,331,432,566,404,389,482,556,false,false,false,true,true,true,true,true,true,true,false,false,true,false,false,false,true,false,false,true,false,true,
+214.258000000013,30,20,30,5,6,0.5,1.0,5000,497,430,472,438,432,587,666,342,381,363,349,308,378,540,359,336,329,385,338,517,430,429,350,true,true,true,false,true,true,false,true,false,false,true,true,true,true,false,true,false,true,true,false,true,false,
+212.9300000000144,30,20,30,5,6,0.5,1.0,5000,475,552,401,417,654,315,314,357,557,607,341,433,398,331,356,427,331,399,473,469,477,417,340,false,true,true,true,true,false,true,false,true,false,false,true,false,false,false,false,true,true,true,true,false,false,
+214.12200000001314,30,20,30,5,6,0.5,1.0,5000,484,352,495,316,371,430,315,426,612,634,459,341,477,373,392,572,369,310,344,375,493,380,450,false,true,true,false,false,true,true,true,true,false,false,false,false,false,true,true,false,true,true,false,true,false,
+214.72200000001672,30,20,30,5,6,0.5,1.0,5000,357,474,472,475,478,370,485,364,420,387,493,381,404,474,341,447,469,380,460,596,474,456,461,false,false,false,true,true,true,false,true,false,false,false,true,true,false,false,false,true,true,false,false,false,false,
+212.62200000001252,30,20,30,5,6,0.5,1.0,5000,573,322,512,457,433,491,319,403,467,348,451,428,307,369,438,587,451,495,495,314,325,384,309,true,true,false,true,false,true,true,true,true,false,true,true,false,true,true,true,false,false,false,true,false,false,
+211.4480000000151,30,20,30,5,6,0.5,1.0,5000,490,612,447,441,332,350,378,453,426,471,403,588,307,591,417,485,332,443,399,430,330,536,399,false,true,true,true,true,true,false,true,false,false,true,true,true,false,true,true,false,true,true,false,true,false,
+
+best individual: 211.4480000000151,30,20,30,5,6,0.5,1.0,5000,490,612,447,441,332,350,378,453,426,471,403,588,307,591,417,485,332,443,399,430,330,536,399,false,true,true,true,true,true,false,true,false,false,true,true,true,false,true,true,false,true,true,false,true,false,
+averageScore: 212
+
+---- SELECTION: tournament
+
+213.16200000001393,30,20,30,5,6,0.5,1.0,5000,495,472,331,471,484,434,353,497,375,356,303,467,472,423,433,479,439,314,319,605,412,434,415,true,false,true,true,true,true,true,true,true,true,false,false,true,false,true,false,false,false,true,true,false,true,
+214.352000000015,30,20,30,5,6,0.5,1.0,5000,421,405,386,485,352,377,412,452,669,483,374,483,383,341,360,429,382,351,413,359,684,437,413,false,true,true,false,false,true,false,false,true,false,false,true,false,false,true,false,true,true,true,true,false,true,
+214.23600000001625,30,20,30,5,6,0.5,1.0,5000,384,619,301,634,398,371,436,336,365,522,492,482,341,599,317,351,337,634,323,408,516,389,323,true,false,true,true,false,false,true,true,false,true,false,false,true,false,true,true,false,true,false,true,false,false,
+214.40000000001314,30,20,30,5,6,0.5,1.0,5000,484,399,491,436,343,421,364,482,329,561,355,389,371,472,536,384,400,497,308,436,409,310,605,false,false,false,false,false,true,false,true,false,false,true,true,false,false,false,true,false,true,false,true,true,false,
+212.5060000000134,30,20,30,5,6,0.5,1.0,5000,544,376,483,484,430,318,304,558,427,324,485,423,486,401,458,352,359,430,367,534,491,369,392,false,true,true,true,true,true,true,true,false,true,true,false,true,true,true,true,true,false,true,true,true,false,
+212.71600000001234,30,20,30,5,6,0.5,1.0,5000,560,309,412,617,458,437,302,436,421,318,330,324,331,346,660,409,398,476,629,418,338,530,328,true,false,true,false,false,true,false,false,false,true,false,true,false,true,false,false,true,false,false,true,false,false,
+214.9990000000152,30,20,30,5,6,0.5,1.0,5000,399,362,336,309,474,630,381,426,333,479,483,486,355,303,582,400,437,567,433,482,451,442,329,true,true,true,true,false,true,false,true,true,false,false,false,false,false,true,false,false,false,false,false,true,false,
+216.9040000000159,30,20,30,5,6,0.5,1.0,5000,357,466,487,442,604,394,301,528,494,470,444,430,306,346,347,469,493,336,429,301,477,387,355,true,true,true,true,false,true,false,false,true,true,true,false,false,true,false,false,false,true,true,true,true,true,
+214.22200000001598,30,20,30,5,6,0.5,1.0,5000,380,427,536,343,493,449,349,482,380,403,395,634,492,487,464,706,384,395,316,392,433,303,463,false,false,true,false,true,true,false,false,false,false,false,true,true,false,false,true,true,false,false,false,true,false,
+216.0290000000152,30,20,30,5,6,0.5,1.0,5000,389,338,588,370,652,491,306,330,474,403,382,324,538,323,424,479,380,340,609,362,327,594,464,true,true,false,false,true,true,false,false,false,false,false,true,false,true,true,true,true,true,false,false,true,true,
+213.7000000000138,30,20,30,5,6,0.5,1.0,5000,484,528,368,359,320,454,385,558,344,309,327,447,315,553,460,355,467,429,656,466,446,314,386,true,true,false,true,false,false,true,false,true,true,true,true,false,true,false,true,true,true,true,true,false,false,
+
+best individual: 212.5060000000134,30,20,30,5,6,0.5,1.0,5000,544,376,483,484,430,318,304,558,427,324,485,423,486,401,458,352,359,430,367,534,491,369,392,false,true,true,true,true,true,true,true,false,true,true,false,true,true,true,true,true,false,true,true,true,false,
+
+---- CROSSOVER: uniform
+
+212.51600000001173,30,20,30,5,6,0.5,1.0,5000,610,497,336,427,434,413,350,491,357,598,609,330,584,363,398,405,378,323,401,393,307,393,331,true,true,true,true,false,true,false,false,false,true,false,true,true,false,true,false,false,false,false,true,false,true,
+213.736000000011,30,20,30,5,6,0.5,1.0,5000,642,323,335,497,328,641,436,323,417,376,343,376,311,358,381,452,490,433,315,480,387,481,361,true,true,true,false,true,false,false,true,true,true,true,true,true,true,false,true,false,true,true,true,true,true,
+215.58000000001542,30,20,30,5,6,0.5,1.0,5000,379,608,374,454,763,563,365,325,574,377,573,475,409,374,378,333,379,303,432,369,327,332,332,true,true,false,true,false,false,true,false,true,true,false,true,true,true,true,true,false,false,true,true,true,false,
+214.94400000001517,30,20,30,5,6,0.5,1.0,5000,407,301,487,490,448,481,343,344,301,649,407,363,613,467,311,514,453,450,396,504,365,400,315,false,true,true,true,false,false,true,false,true,false,true,false,false,true,false,false,false,true,true,true,true,false,
+214.67800000001452,30,20,30,5,6,0.5,1.0,5000,434,329,307,419,374,496,541,432,449,331,614,320,365,349,319,516,431,415,657,439,434,540,395,false,false,true,false,true,true,false,true,true,true,false,true,false,false,true,true,false,false,true,false,true,false,
+213.1700000000147,30,20,30,5,6,0.5,1.0,5000,438,509,493,389,582,344,345,364,388,333,317,476,411,427,476,317,565,390,704,500,553,380,444,false,false,false,false,false,true,true,false,false,false,true,true,false,true,true,false,false,true,false,true,false,false,
+214.60200000001302,30,20,30,5,6,0.5,1.0,5000,497,450,373,437,383,468,357,378,337,344,397,437,436,315,370,563,641,431,413,306,488,377,428,true,false,false,true,false,false,true,true,false,true,true,false,false,true,true,true,false,true,true,true,true,true,
+212.33400000001177,30,20,30,5,6,0.5,1.0,5000,614,337,435,345,392,310,577,429,345,356,473,341,315,488,414,457,437,416,452,485,480,380,357,false,true,false,true,false,true,false,true,true,false,false,false,true,true,false,true,true,false,true,false,true,false,
+214.1640000000142,30,20,30,5,6,0.5,1.0,5000,469,467,378,431,380,350,453,439,438,444,355,433,524,483,322,549,451,354,362,332,488,403,320,false,true,true,false,true,true,false,false,true,true,true,true,true,true,true,true,true,true,false,true,true,false,
+215.98200000001572,30,20,30,5,6,0.5,1.0,5000,380,347,456,478,487,463,435,422,404,371,465,340,492,460,353,383,434,381,403,493,401,401,374,true,true,false,true,false,true,true,true,false,true,false,true,true,true,true,false,true,false,false,true,false,true,
+213.56400000001304,30,20,30,5,6,0.5,1.0,5000,529,457,496,393,398,373,436,458,319,434,452,531,314,398,346,416,342,452,317,346,498,546,352,true,true,true,true,true,true,false,true,true,true,false,true,false,true,false,false,false,true,true,false,false,true,
+213.36000000001496,30,20,30,5,6,0.5,1.0,5000,445,455,446,452,428,419,340,640,456,311,565,432,383,407,396,383,458,409,472,451,442,311,336,true,false,true,false,false,false,true,false,false,false,true,true,true,true,false,true,true,false,true,false,true,false,
+214.0940000000117,30,20,30,5,6,0.5,1.0,5000,567,411,413,354,374,479,479,492,482,301,303,464,452,322,580,466,388,323,382,365,304,314,469,true,true,false,false,true,true,false,true,false,true,false,false,false,true,false,true,true,true,false,true,false,false,
+211.52200000001247,30,20,30,5,6,0.5,1.0,5000,599,370,307,348,447,593,469,377,333,469,468,441,332,406,485,408,421,441,497,367,495,434,383,false,true,true,true,true,false,true,true,false,false,false,true,true,false,true,true,false,false,true,false,false,false,
+214.30600000001522,30,20,30,5,6,0.5,1.0,5000,416,406,349,333,328,434,460,536,492,448,314,309,536,420,500,496,671,440,458,377,473,451,311,false,true,true,false,true,false,false,true,true,true,true,true,false,true,false,true,true,true,true,false,false,true,
+212.7340000000136,30,20,30,5,6,0.5,1.0,5000,532,329,477,488,433,492,423,520,413,332,511,348,465,384,340,304,475,448,428,386,490,308,326,true,true,true,true,true,true,true,true,false,true,false,true,true,false,true,true,true,true,true,false,true,false,
+210.79600000001534,30,20,30,5,6,0.5,1.0,5000,451,659,415,416,301,456,573,305,302,438,490,337,326,455,516,788,410,707,324,395,492,345,342,false,true,false,false,true,true,true,true,false,true,false,false,false,true,true,true,false,false,true,false,true,false,
+215.2040000000159,30,20,30,5,6,0.5,1.0,5000,387,393,470,467,423,352,430,450,358,612,384,567,310,452,438,320,395,358,473,481,390,445,422,true,true,true,true,true,false,true,true,false,true,true,false,false,false,false,true,false,true,true,true,true,false,
+213.96000000001612,30,20,30,5,6,0.5,1.0,5000,406,525,371,458,413,454,375,452,491,307,487,385,373,433,371,327,338,383,721,466,368,628,333,true,true,true,false,true,false,true,true,true,true,true,false,true,true,true,true,true,true,false,true,true,false,
+212.2780000000159,30,20,30,5,6,0.5,1.0,5000,432,455,439,315,848,318,305,650,322,369,396,440,496,352,311,768,383,468,322,483,341,448,335,true,true,false,true,true,true,true,false,false,true,false,true,false,false,true,true,true,true,true,false,false,true,
+212.50800000001092,30,20,30,5,6,0.5,1.0,5000,657,396,524,355,424,473,334,301,364,324,386,314,398,434,363,318,494,399,543,684,413,477,353,false,false,false,true,true,true,true,true,true,true,false,false,true,true,true,false,true,false,true,true,true,false,
+
+best individual: 210.79600000001534,30,20,30,5,6,0.5,1.0,5000,451,659,415,416,301,456,573,305,302,438,490,337,326,455,516,788,410,707,324,395,492,345,342,false,true,false,false,true,true,true,true,false,true,false,false,false,true,true,true,false,false,true,false,true,false,
+
+---- CROSSOVER: multipoint

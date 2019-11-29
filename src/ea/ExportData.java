@@ -19,6 +19,30 @@ public class ExportData implements Runnable
 
     public void run()
     {
+        /*
+        // DOING AVERAGE OF ALL RESULTS
+        try {
+            File file = new File("C:\\Users\\Student\\Desktop\\ecooooo\\results\\testing\\roulette");
+
+            BufferedReader br = new BufferedReader(new FileReader(file));
+
+            double total = 0.0;
+            double count = 0.0;
+
+            String st;
+            while ((st = br.readLine()) != null){
+                double d = Double.parseDouble(st);
+                total += d;
+                count++;
+                System.out.println(d);
+            }
+            System.out.println("total: "+total);
+            System.out.println("average: "+(total / count));
+
+        }
+        catch (Exception e) {e.printStackTrace();}
+         */
+
         ArrayList<String> results = new ArrayList<>();
         // ArrayList<Integer> pacings = new ArrayList<>();
 
@@ -30,7 +54,7 @@ public class ExportData implements Runnable
         String [] diversity = Parameters.diversity;     // 2
 
         int idx = 0;
-        int times = 10;
+        int times = 20;
         for (int i = 0; i <= times; i++) // run EA 30 times to get average
         {
             /*
@@ -42,8 +66,8 @@ public class ExportData implements Runnable
             System.out.println("--i: "+i+"\n");
             EA ea = new EA();
             Individual individual = new Individual();
-            System.out.println("------SELECTION: "+selection[0]);
-            ea.runAlgorithm(start, bound, selection[1], crossover[0], mutation[0], diversity[0]);
+            ea.runAlgorithm(start, bound, selection[0], crossover[1], mutation[0], diversity[0]);
+            System.out.println("------CROSSOVER: "+crossover[1]);
             individual = ea.getBestIndividual();
             String result = individual.getResult();
             results.add(result);
@@ -112,7 +136,7 @@ public class ExportData implements Runnable
             }
             out.println("");
             out.println("best individual: "+ bestRun);
-            out.println("averageScore: "+(averageScore / (times+1)));
+            // out.println("averageScore: "+(averageScore / (times+1)));
             out.println("");
         }
         catch (IOException e) { e.printStackTrace(); }
