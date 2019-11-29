@@ -42,8 +42,9 @@ public class EA
 		iteration = 0;
 		while(iteration < Parameters.maxIterations){
 			iteration++;
-			if(iteration % Parameters.reducePopSizeRate == 0)
+			if((diversity.equals("sawtooth")) && iteration % Parameters.reducePopSizeRate == 0)
 			{
+				// SAWTOOTH
 				removeIndividual(); // every 30 iterations, remove worst individual
 				if(population.size() <= Parameters.mimPopSize)
 					refillPopulation(start, bound); // refill when limit is reached
@@ -79,8 +80,8 @@ public class EA
 		}
 		Individual best = getBest(population);
 		best.print();
-		if (diversity.equals("hillclimber")) {}
-			//hill_climber(best);
+		if (diversity.equals("hillclimber"))
+			hill_climber(best);
 	}
 
 	private void printStats() {		
@@ -146,7 +147,6 @@ public class EA
 		{
 			if(Parameters.rnd.nextInt(2) == 0)
 				child1.pacingStrategy[i] = parent1.pacingStrategy[i];
-
 			else
 				child1.pacingStrategy[i] = parent2.pacingStrategy[i];
 		}
@@ -155,7 +155,6 @@ public class EA
 		{
 			if(Parameters.rnd.nextInt(2) == 0)
 				child1.transitionStrategy[i] = parent1.transitionStrategy[i];
-
 			else
 				child1.transitionStrategy[i] = parent2.transitionStrategy[i];
 		}

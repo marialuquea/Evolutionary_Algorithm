@@ -1,0 +1,14 @@
+SELECTION:
+- tournament: 214.39318181819633
+- roulette: 213.602681818196
+
+CROSSOVER with roulette selection:
+- uniform: 213.62057142858538
+- multipoint: 213.61371428572826
+- onepoint: 213.62640000001397
+
+MUTATION with roulette selection AND multipoint crossover:
+- simple: 213.61371428572826
+- swap: 213.28490000001412
+
+DIVERSITY

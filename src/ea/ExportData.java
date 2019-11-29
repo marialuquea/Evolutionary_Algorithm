@@ -22,7 +22,7 @@ public class ExportData implements Runnable
         /*
         // DOING AVERAGE OF ALL RESULTS
         try {
-            File file = new File("C:\\Users\\Student\\Desktop\\ecooooo\\results\\testing\\roulette");
+            File file = new File("C:\\Users\\Student\\Desktop\\ecooooo\\results\\testing\\swap.txt");
 
             BufferedReader br = new BufferedReader(new FileReader(file));
 
@@ -66,8 +66,11 @@ public class ExportData implements Runnable
             System.out.println("--i: "+i+"\n");
             EA ea = new EA();
             Individual individual = new Individual();
-            ea.runAlgorithm(start, bound, selection[0], crossover[2], mutation[0], diversity[0]);
-            System.out.println("------CROSSOVER: "+crossover[2]);
+            ea.runAlgorithm(start, bound, selection[0], crossover[1], mutation[1], diversity[0]);
+            System.out.println("------SELECTION: "+selection[0]);
+            System.out.println("------CROSSOVER: "+crossover[1]);
+            System.out.println("------MUTATION: "+mutation[0]);
+            System.out.println("------DIVERSITY: "+diversity[0]);
             individual = ea.getBestIndividual();
             String result = individual.getResult();
             results.add(result);
