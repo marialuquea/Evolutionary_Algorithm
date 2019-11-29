@@ -54,7 +54,7 @@ public class ExportData implements Runnable
         String [] diversity = Parameters.diversity;     // 2
 
         int idx = 0;
-        int times = 20;
+        int times = 19;
         for (int i = 0; i <= times; i++) // run EA 30 times to get average
         {
             /*
@@ -66,8 +66,8 @@ public class ExportData implements Runnable
             System.out.println("--i: "+i+"\n");
             EA ea = new EA();
             Individual individual = new Individual();
-            ea.runAlgorithm(start, bound, selection[0], crossover[1], mutation[0], diversity[0]);
-            System.out.println("------CROSSOVER: "+crossover[1]);
+            ea.runAlgorithm(start, bound, selection[0], crossover[2], mutation[0], diversity[0]);
+            System.out.println("------CROSSOVER: "+crossover[2]);
             individual = ea.getBestIndividual();
             String result = individual.getResult();
             results.add(result);
