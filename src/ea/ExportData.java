@@ -30,19 +30,20 @@ public class ExportData implements Runnable
         String [] diversity = Parameters.diversity;     // 2
 
         int idx = 0;
-        int times = 19;
+        int times = 10;
         for (int i = 0; i <= times; i++) // run EA 30 times to get average
         {
-
+            /*
             if ((i % 10 == 0) && (i != 0)) {
                 idx++;
             }
+            */
 
-            System.out.println("--i: "+i);
+            System.out.println("--i: "+i+"\n");
             EA ea = new EA();
             Individual individual = new Individual();
-            System.out.println("------SELECTION: "+selection[idx]);
-            ea.runAlgorithm(start, bound, selection[idx], crossover[0], mutation[0], diversity[0]);
+            System.out.println("------SELECTION: "+selection[0]);
+            ea.runAlgorithm(start, bound, selection[1], crossover[0], mutation[0], diversity[0]);
             individual = ea.getBestIndividual();
             String result = individual.getResult();
             results.add(result);
