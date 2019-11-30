@@ -19,7 +19,7 @@ public class ExportData implements Runnable
 
     public void run()
     {
-        /*
+        
         // DOING AVERAGE OF ALL RESULTS
         try {
             File file = new File("C:\\Users\\Maria\\Desktop\\ecooooo\\results\\testing\\hillclimber.txt");
@@ -35,7 +35,7 @@ public class ExportData implements Runnable
             System.out.println("total: "+total);
             System.out.println("average: "+(total / count));
         } catch (Exception e) {e.printStackTrace();}
-        */
+
 
         ArrayList<String> results = new ArrayList<>();
         // ArrayList<Integer> pacings = new ArrayList<>();
@@ -48,7 +48,7 @@ public class ExportData implements Runnable
         String [] diversity = Parameters.diversity;     // 2
 
         int idx = 0;
-        int times = 9;
+        int times = 4;
         for (int i = 0; i <= times; i++) // run EA 30 times to get average
         {
             /*
