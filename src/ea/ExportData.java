@@ -22,7 +22,7 @@ public class ExportData implements Runnable
 
         // DOING AVERAGE OF ALL RESULTS
         try {
-            File file = new File("C:\\Users\\Maria\\Desktop\\ecooooo\\results\\testing\\sawtooth.txt");
+            File file = new File("C:\\Users\\Maria\\Desktop\\ecooooo\\results\\testing\\sawtooth_hillclimber.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
             double total = 0.0;
             double count = 0.0;

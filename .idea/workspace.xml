@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="318e6e4d-65ac-459b-9506-c8dcbabd5331" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/results/testing/sawtooth_hillclimber.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/ExportData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/ExportData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/testing/hillclimber.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/hillclimber.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/testing/roulette.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/roulette.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/testing/txt_to_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/txt_to_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ea/EA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/EA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/testing/t_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/t_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ea/ExportData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/ExportData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ea/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Parameters.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

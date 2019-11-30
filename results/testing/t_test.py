@@ -30,15 +30,15 @@ def t_test(one, two):
    df1 = pandas.read_csv(one)
    df2 = pandas.read_csv(two)
    
-   a = df1[['tournament']]
-   b = df2[['roulette']]
+   a = df1[['hillclimber']]
+   b = df2[['sawtooth']]
    
    t, p = stats.ttest_ind(a,b)
    
-   print(float(t))
-   print(float(p))
+   print("t = ",float(t))
+   print("p = ",float(p))
    
-t_test('tournament.csv', 'roulette.csv')
+t_test('hillclimber.csv', 'sawtooth.csv')
 
 
 
@@ -47,16 +47,16 @@ def shapiroWilkTest(dataset):
    
    df = pandas.read_csv(dataset)
    
-   df1 = df[['tournament']]
+   df1 = df[['sawtooth']]
    
    print(df1)
    
    W, P = stats.shapiro(df1)
    
-   print(W)
-   print(P)
+   print("W = ", W)
+   print("p = ",P)
 
-shapiroWilkTest('tournament.csv')
+shapiroWilkTest('sawtooth.csv')
 
 
 
