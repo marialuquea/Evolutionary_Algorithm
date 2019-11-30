@@ -12,3 +12,5 @@ MUTATION with roulette selection AND multipoint crossover:
 - swap: 213.28490000001412
 
 DIVERSITY
+- hill climber:
+- sawtooth

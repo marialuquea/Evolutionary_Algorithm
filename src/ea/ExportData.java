@@ -22,26 +22,20 @@ public class ExportData implements Runnable
         /*
         // DOING AVERAGE OF ALL RESULTS
         try {
-            File file = new File("C:\\Users\\Student\\Desktop\\ecooooo\\results\\testing\\swap.txt");
-
+            File file = new File("C:\\Users\\Maria\\Desktop\\ecooooo\\results\\testing\\hillclimber.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
-
             double total = 0.0;
             double count = 0.0;
-
             String st;
             while ((st = br.readLine()) != null){
                 double d = Double.parseDouble(st);
                 total += d;
                 count++;
-                System.out.println(d);
             }
             System.out.println("total: "+total);
             System.out.println("average: "+(total / count));
-
-        }
-        catch (Exception e) {e.printStackTrace();}
-         */
+        } catch (Exception e) {e.printStackTrace();}
+        */
 
         ArrayList<String> results = new ArrayList<>();
         // ArrayList<Integer> pacings = new ArrayList<>();
@@ -54,7 +48,7 @@ public class ExportData implements Runnable
         String [] diversity = Parameters.diversity;     // 2
 
         int idx = 0;
-        int times = 19;
+        int times = 9;
         for (int i = 0; i <= times; i++) // run EA 30 times to get average
         {
             /*
@@ -66,7 +60,7 @@ public class ExportData implements Runnable
             System.out.println("--i: "+i+"\n");
             EA ea = new EA();
             Individual individual = new Individual();
-            ea.runAlgorithm(start, bound, selection[0], crossover[1], mutation[1], diversity[0]);
+            ea.runAlgorithm(start, bound, selection[0], crossover[1], mutation[1], diversity[1]);
             System.out.println("------SELECTION: "+selection[0]);
             System.out.println("------CROSSOVER: "+crossover[1]);
             System.out.println("------MUTATION: "+mutation[0]);

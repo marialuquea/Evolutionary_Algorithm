@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="318e6e4d-65ac-459b-9506-c8dcbabd5331" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/results/testing/hillclimber.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/ExportData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/ExportData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ecooooo/ea/Parameters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/plot_graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/results/plot_graphs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/testing/multipoint.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/multipoint.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/testing/onepoint.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/onepoint.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/testing/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/testing/roulette" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/testing/tournament.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/tournament.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/testing/uniform.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/testing/uniform.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ea/ExportData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/ExportData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ea/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ea/Parameters.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +26,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UFf3W7qnjr1zt9zoaz3AtcaE5H" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -25,6 +36,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="ExportData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -45,18 +68,6 @@
         <item itemvalue="Application.ExportData" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
