@@ -19,10 +19,10 @@ public class ExportData implements Runnable
 
     public void run()
     {
-        
+
         // DOING AVERAGE OF ALL RESULTS
         try {
-            File file = new File("C:\\Users\\Maria\\Desktop\\ecooooo\\results\\testing\\hillclimber.txt");
+            File file = new File("C:\\Users\\Maria\\Desktop\\ecooooo\\results\\testing\\sawtooth.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
             double total = 0.0;
             double count = 0.0;
@@ -60,11 +60,11 @@ public class ExportData implements Runnable
             System.out.println("--i: "+i+"\n");
             EA ea = new EA();
             Individual individual = new Individual();
-            ea.runAlgorithm(start, bound, selection[0], crossover[1], mutation[1], diversity[1]);
             System.out.println("------SELECTION: "+selection[0]);
             System.out.println("------CROSSOVER: "+crossover[1]);
-            System.out.println("------MUTATION: "+mutation[0]);
-            System.out.println("------DIVERSITY: "+diversity[0]);
+            System.out.println("------MUTATION: "+mutation[1]);
+            System.out.println("------DIVERSITY: "+diversity[1]);
+            ea.runAlgorithm(start, bound, selection[0], crossover[1], mutation[1], diversity[1]);
             individual = ea.getBestIndividual();
             String result = individual.getResult();
             results.add(result);

@@ -80,8 +80,8 @@ public class EA
 		}
 		Individual best = getBest(population);
 		best.print();
-		if (diversity.equals("hillclimber"))
-			hill_climber(best);
+		//if (diversity.equals("hillclimber"))
+		hill_climber(best);
 	}
 
 	private void printStats() {		
