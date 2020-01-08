@@ -13,4 +13,4 @@ Solution representation:
 - Women's event (3 cyclists, all have to reach the finish): 23 integers for the pacing part, 22 booleans for the transition part
 
 SDK: 11.0.4
-:)
+
